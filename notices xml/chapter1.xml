@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Notice>
+    <head>
+        <title>Chapter 1 : Les trois vertus théogonales</title>
+        <auteur/>
+        <date/>
+    </head>
+    <body>
+        <div class="chapter" id="theologales">
+            <h1>Les trois vertus théogonales</h1>
+            <div class="section" id="01">
+                <h2>1. La Foi, l'Espérance et la Charité</h2>
+                <div class="item" id="CG">
+                    <h3 class="title">Composition générale</h3>
+                    <p><a href="#theogonales02">La Foi</a> et <a href="#theogonales03"
+                            >l’Espérance</a>sont disposées symétriquement de part et d’autre du <a
+                            href="#theologales01">blason</a> de la maison de Savoie. Les deux
+                        figures allégoriques sont vêtues de manière similaire. Elles se tiennent
+                        face à face, chacune soutenant d’une main la couronne au centre et, de
+                        l’autre, leur attribut respectif : la croix pour la Foi, l’ancre pour
+                        l’Espérance. Une colombe, symbolisant l’Esprit saint, entourée d’une
+                        auréole, les ailes déployées, surplombe la couronne grand-ducale
+                        <!-- <note place="comment" resp="Denis_Ribouillault"><date
+                                when="2015-10-08T10:45:00Z"/>Montrer qu’il s’agit d’un type
+                            spécifique de couronne.</note>-->. <a
+                            href="#theologales04">La Charité</a> les bras écartés soutient, quant à
+                        elle, le riche cadre contenant le blason. <a href="#d1">Un pendentif</a>
+                        entre ses jambes la relie, grâce aux chaînes qui en sont issues, aux deux
+                        autres figures. Les trois vertus théologales sont par conséquent rassemblées
+                        autour du blason, exactement comme dans le plan de Rome, tel que l’indique
+                        le manuscrit : <transcript>« Però à dimostrare ch’el / Beat.<sup>mo</sup>
+                            Sisto V.<sup>o</sup> Mont.<sup>o</sup> è dottato
+                                christianam.<sup>te</sup> / di queste io le ho per ornamento
+                            dell’Arma disse-/gnate et sono le tre virtù Theologiche fede,
+                            spe-/ranza, e charità/ » (fol. 11r=20).</transcript>
+                    </p>
+                </div>
+                <div class="item" id="theogonales01">
+                    <h3 class="title">Le blason</h3>
+                    <p>Le blason se compose de quatre parties distinctes. Deux parties contiennent
+                        un cheval et deux parties un lion. Les correspondances se font
+                        diagonalement. Il s’agit du blason de la Savoie tel qu’il a été remanié au
+                            16<sup>e</sup> siècle par le duc Emmanuel-Philibert, père de
+                        Charles-Emmanuel 1<sup>er</sup>. Une bordure entourant le blason contient
+                        l’inscription suivante : <transcript>« CAROLVS EMANVEL EMAN. PHIL. SAB. DVC.
+                            FILIVS. DVX SAB. XI. CHABL ET AVG. XXI. PB. PED. ».</transcript>
+                    </p>
+
+                    <!-->   <note><hi rend="color(FF0000)">Déchiffrer précisément l’inscription</hi>
+                        <hi rend="color(FF0000)">Description correcte d’un point de vue héraldique
+                            des armes de la Maison de Savoie.</hi>
+                        <hi rend="color(FF0000)">RÉFÉRENCES.</hi></note> -->
+
+                    <p>Comme nous l’avons indiqué précédemment, le blason est surmonté d’une
+                        couronne, elle-même surmontée de l’Esprit saint. Dans le vue de Rome on
+                        trouvait les emblèmes traditionnels du pape, le trône et des clés. Bien que
+                        les objets diffèrents, les armes des commanditaires sont représentées dans
+                        les deux cas au moment de leur « couronnement » par <a href="#theogonales02"
+                            >la Foi</a> et <a href="#theogonales03">l’Espérance</a>, comme
+                        l’explique Righettino: </p>
+                    <blockquote>Queste due virtù poi incoronano l’arma col Trono / à dimostrare, che
+                        S. Beat.<sup>ne</sup> per la vera fede, la / quale sempre hà havuta in Dio
+                        et per la ferma / speran: [sic speranza?] qual sempre ne suoi travagli hebbe
+                        nella / divina M.<sup>tà</sup> hà meritato d’esser di questo trono /
+                        incoronato. Et ogni dì per l’augumento di queste / virtù nel suo intelletto,
+                        et affetto, và meritando l’/accrescimento del suo stato et del regno di xpo
+                        [christo] / in terra. (fol. 12r=22 et 12v=23).</blockquote>
+                    <p>Ainsi, si le blason de la maison de Savoie est couronné par la Foi et
+                        l’Espérance, c’est que, selon le dessinateur, le duc méritait l’obtention du
+                        pouvoir par la possession et l’exercice de ces deux vertus. Attardons-nous
+                        maintenant au choix de l’objet couronnant le blason. Dans le manuscrit,
+                        Righettino mentionne que ce sont un trône et des clés puisque ces objets
+                        symbolisent l’autorité papale : <blockquote>« […] nel Tro-/no, et nelle
+                            chiavi posti sopra l’Arma quali realm<sup>te</sup> / per appresentare
+                            l’auttorità [sic.] Pontificia […] » (fol. 10r = 18).</blockquote> Comme
+                        le plan de Rome glorifie Sixte Quint en tant qu’autorité religieuse, le plan
+                        de Turin célèbre l’autorité politique que Charles-Emmanuel exerce sur la
+                        Savoie à partir de Turin, la capitale du duché depuis 1562. </p>
+                    <p>Righettino explique en détail la présence de l’Esprit saint au-dessus des
+                        emblèmes du pouvoir papal : <blockquote>Et per dimostrare, che questo Trono,
+                            et queste chiavi / sono doni gratis dati da Dio dicendo S. Giacomo /
+                            omne datum optimum, et omne donum perfectum / desursum est descendens à
+                            Patre Luminum<note place="foot" xml:id="ftn1" n="1"><p> Épître de
+                                    Jacques (1 :17) : « Omne datum optimum et omne donum perfectum
+                                    de sursum est, descendens a Patre luminum, apud quem non est
+                                    transmutatio nec vicissitudinis obumbratio. » [« Toute grâce
+                                    excellente et tout don parfait descendent d’en haut, du Père des
+                                    lumières, chez lequel il n’y a ni changement ni ombre de
+                                    variation. »]. </p></note> per / questo io gl’hò dissegnato di
+                            sopra lo spirito san-/to in specie di colomba, et con l’ali aperte, et
+                            tutto / questo per due cagioni: prima per dimostrare / che questo
+                                Sant.<sup>mo</sup> Padre, riconosce questo Trono / da Dio, come dono
+                            dello spirito santo, consapevo-/le delle parole di S. Giacomo già
+                            espresse, et di / quelle Omnis potestas à Domino deo est<note
+                                place="foot" xml:id="ftn2" n="2"><p> « Tout pouvoir vient de
+                                    Dieu ».</p></note>, et di / quelle altre dell’Apostolo Quid
+                            habes quod non / accepisti<note place="foot" xml:id="ftn3" n="3"><p> I,
+                                    Corinthiens, IV, 7 (Épîtres de Saint Paul aux Corinthiens) :
+                                    « Que possèdes-tu, ô homme, que tu n'aies reçu ? ». </p></note>.
+                                S.<sup>do</sup> per dimostrare, che questo medesimo / spirito, il
+                            quale si vede con l’ali aperte cuoprir l’/ Arma continuamente con l’Ali
+                            della sua protte-/tione, et diffensione cuopre, diffenre, favorisce, et
+                            / conserva questo Pontificato […] (fol. 10v=19).</blockquote>
+                    </p>
+
+                    <p>Ainsi, comme l’Esprit saint légitime et protège l’autorité papale dans le
+                        plan de Rome, il détient probablement la même fonction envers l’autorité
+                        politique de Turin dans ce dessin. </p>
+                    <p>De part et d’autre du blason deux satyres ailés (masculin à gauche, féminin à
+                        droite) sont juchés sur les saillies du cadre. Ils portent une ceinture,
+                        dont la boucle est ornée d’un visage, et posent leur main sur leur
+                        poitrine.<!--<hi rend="annotation_reference"><note place="comment"
+                                resp="Denis_Ribouillault"><date when="2015-10-02T15:32:00Z"
+                                />Chercher signification du geste. Acceptation? Respect?
+                            </note></hi>.--> Le corps de la satyresse est
+                        orienté vers la droite, mais sa tête est tournée vers la gauche, vers son
+                        compagnon.</p>
+                </div>
+                <div class="item" id="theogonales02">
+                    <h3 class="title">la Foi</h3>
+                    <p>Dans le plan de Rome, la Foi figure non pas à gauche, mais à droite du <a
+                            href="#theogonales01">blason</a> comme l’indique Righettino dans sa
+                        discussion de la Théologie divine (fol. 13v=25). La Foi tient la couronne de
+                        sa main droite, alors que sa main gauche tient une grande croix sur son
+                        épaule. Sa jambe gauche est levée et s’appuie sur des détails ornementaux.
+                        Derrière elle se trouve, devant un livre ouvert, un ensemble formé d’un
+                        calice et d’un cercle rayonnant : l’hostie. On retrouve ces mêmes attributs
+                        dans le plan de Turin. Le manuscrit permet de faire la lumière sur la
+                        signification de ces objets : <blockquote>« [...] io la discrivo con la
+                            Croce, et col calice / con l’hostia sopra, à dimostrare le cose humane /
+                            et divine, alle quali, la fede si estende. La croce de-/nota l’humanità,
+                            et la passione di christo. L’hos-/tia sopra il calice denota la
+                            divinità, et la glo-/ria » (fol. 11r = 20).</blockquote>
+                    </p>
+                    <p>Le livre n’est pas identifié comme un attribut de la Foi dans le manuscrit,
+                        mais plutôt comme un attribut de la <otherfile>Théologie divine</otherfile>,
+                        figure dont il sera question plus loin. Pourtant, la Foi et <a
+                            href="#theologales03">l’Espérance</a> sont toutes deux accompagnées d’un
+                        livre dans le dessin en plus de leurs propres attributs. Sa signification
+                        auprès d’elles s’apparenterait-elle à celle que Righettino accorde aux
+                        livres entourant la Théologie divine ? Il l’explique ainsi :
+                            <blockquote>« Io la discrivo con gli libri in mano perche in / questa
+                            chi vuol farsi perfetto gli convien’ sem-/pre versar’ ne studi » (fol.
+                            13v=25).</blockquote>
+                    </p>
+
+                    <!-- <hi rend="color(FF0000)">REVOIR CE PASSAGE. PAS TRÈS CLAIR.</hi> -->
+
+                </div>
+                <div class="item" id="theogonales03">
+                    <h3 class="title">L'Espérance</h3>
+                    <p>Comme nous l’avons mentionné précédemment, les positions de l’Espérance et de
+                            <a href="#theologales02">la Foi</a>ont été inversées dans le plan de
+                        Turin par rapport au plan de Rome. Ainsi, l’Espérance se retrouve à droite
+                        du <a href="#theologales01">blason</a>, et non à gauche (fol. 13v=25).
+                        Disposée symétriquement à la Foi, l’Espérance tient la couronne de la main
+                        gauche et son premier attribut, l’ancre, de la main droite. Sa jambe droite
+                        levée est déposée sur l’ornement derrière elle. Son second attribut, le
+                        miroir est disposé devant un livre ouvert, dans une composition encore une
+                        fois en tous points symétrique à celle des objets placés derrière la Foi.
+                        Righettino explique précisément la signfication de ces objets :
+                            <blockquote>La speranza che è una certissima aspettatione della /
+                            ventura beatitudine, [...] io la descrivo con l’Ancora in / mano, et con
+                            lo specchio a canto con l’Ancora a / dimostrar la fermezza, et certezza
+                            di questa aspettazione [...] con / speranza, che è la futura
+                            beatitudine, noi a posse-/diamo, et vediamo qui in terra per imagine, et
+                            per / ritratto come in un specchio imperfettamente, et non / per vera
+                            specie, et à faccia à faccia, come Là in cielo / la vedremo, et
+                            possederemo (fol. 11r = 21).</blockquote>
+                    </p>
+
+                    <p>Le manuscrit offre également des informations sur le positionnement des
+                        attributs derrière les figures : <blockquote>« che la croce, l’Ancora, il
+                            calice, et / lo specchio attribuiti à queste virtù sono loro doppo / le
+                            spalle à dimostrare, che la fede non vede quel che / crede, ne la
+                            speranza, quello che spera [...] » (fol. 12r = 22).</blockquote></p>
+                </div>
+                <div class="item" id="theogonales04">
+                    <h3 class="title">La Charité</h3>
+                    <p>Tel qu’énoncé précédemment, la Charité se trouve sous <a
+                            href="#theologales01">le blason</a> et lève les bras de manière à
+                        supporter son cadre. À en croire le manuscrit, sa position semble être la
+                        même que celle de la figure homonyme dans le plan de Rome : <transcript>« Io
+                            la dissegno in forma di sostentar L’ar-/ma con le braccia, à dimostrare
+                            che essendo S. / Beat.<sup>ne</sup>piena di charità verso dio [...] »
+                            (fol. 12v = 23)</transcript>. Les armes de la maison de Savoie soutenues
+                        par la figure peuvent signifier au même titre l’amour que le duché de Savoie
+                        porte à Dieu à travers son peuple. Les jambes de la Charité, repliées l’une
+                        vers l’autre, accueillent <a href="#d1">un pendentif</a>. <a href="#d2">Deux
+                            jeunes enfants nus</a>, attributs traditionnels de la Charité, sont
+                        placés de part et d’autre de la figure. Finalement, la figure est assise sur
+                            <a href="#d3">un feston fort</a> complexe composé d’innombrables
+                        aliments et denrées les plus diverses. </p>
+                    <div class="item" id="d1">
+                        <h3 class="subtitle">Le pendentif</h3>
+                        <p>Un pendentif figurant une <i>Annonciation</i>, dont les chaînes entourent
+                                <a href="#theogonales01">le blason</a>, se trouve entre les jambes
+                            de la <a href="#theogonales04">Charité</a>. Il s’agit de l’Ordre suprême
+                            de la Très Sainte Annonciade ou Ordre de l’Annonciade (en italien
+                            l’Ordine Supremo della Santissima Annunziata ou Ordine del Collare), un
+                            ordre de chevalerie de la maison de Savoie fondé en 1362 par Amadeus VI
+                            (1334-1383). Son prédécesseur Amadeus V (c. 1250-1323) avait défendu
+                            Rhodes contre les Turcs en 1315 donnant à l’ordre la devise « Fortitudo
+                            eius Rhodum tenuit » (« Sa vaillance a gagné et possède Rhodes »<note
+                                place="foot" xml:id="ftn4" n="4"><p> Je traduis.</p></note>), une
+                            devise que l’on retrouve d’ailleurs inscrite autour de la vue de Rhodes
+                            située légèrement sur la droite dans le cercle « maritime » entourant la
+                            vue de Turin.<!--<hi
+                                rend="annotation_reference"><note place="comment"
+                                    resp="Denis_Ribouillault"><date when="2015-10-08T10:39:00Z"
+                                    />Mettre la référence catalogue.
+                            </note></hi><hi rend="background(white)" xml:space="preserve">.</hi>-->
+                            Claude Paradin, dans ses <i>Devises héroïques </i>de 1557 montre ce même
+                            collier formé d’un médaillon montrant la salutation angélique à la
+                            Vierge (l’ordre lui étant consacré) et de chaînes portant les quatre
+                            premières lettres des mots de la devise, FERT. Paradin explique
+                            l’origine de cette devise : <blockquote>L’ordre de l’Anonciade en la
+                                pacifique maison de Savoye, fut institué par le Conte Vert, Amé v.
+                                de ce nom. La Devise duquel Ordre, il ordonna estre d’un Collier
+                                d’or à quatre lettres entrelacees de lacs d’amour avec l’image de la
+                                salutacion Angelique à la vierge Marie. Lesdites quatre lettres
+                                donques sinifient le mot que dessus, &amp; ce pour perpetuer en
+                                ladite maison, les faits chevalereus &amp; prouesses d’Amé, premier
+                                Conte de Savoye, lequel voyageant outre mer contre les infideles,
+                                merita tant de la Religion de Rhodes, devant Acre, que faisant
+                                l’ofice du Grandmaitre, lui fut requis de s’armoyer des armoiries de
+                                ladite Religion, &amp; lui &amp; ses successeurs au Conté de Savoye,
+                                pour avoir sauvé lesdis Chevaliers Chretiens, &amp; tiré du peril de
+                                la tirannie des ennemis de la Foy. Le susdit Conte Vert donques
+                                instituteur de tel Ordre, en se nommant Chef d’icelui: y apella
+                                aussi quatorze Chevaliers nobles, &amp; lui faisant le quinzieme,
+                                ausquelz il donna à chacun un Collier d’or à la Devise susdite
+                                    […]<note place="foot" xml:id="ftn5" n="5"><p
+                                        rend="footnote text"> Claude Paradin, <hi rend="italic"
+                                            >Devises héroïques</hi>, Lyons, Jean de Tournes et
+                                        Guillaume Gazeau, 1557, c.4r, p. 39, c.4v, p. 40. Voir <ref
+                                            target="http://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FPAb019"
+                                            >http://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FPAb019</ref></p></note><hi
+                                    rend="fr">.</hi>
+                            </blockquote>
+                        </p>
+                        <p>Il s’agit de la plus haute distinction honorifique de la Maison de
+                            Savoie. Elle rappelait ici le rôle ancestral de la maison de Savoie dans
+                            la défense de la Chrétienté menacée par les infidèles, un thème central
+                            qui infuse le programme de la vue dans son entièreté. Notons, pour
+                            conclure, que l’on trouve un médaillon identique sur le portrait gravé
+                            de Charles Emmanuel I<sup>er</sup> réalisé par Giovanni Caraca, pour
+                            lequel l’hypothèse d’une collaboration de Righettino a récemment été
+                            émise. <!--<hi rend="background(yellow)">(Voir Cat. expo Caraccha,
+                                2005).</hi>--></p>
+                        <p> Dans la vue de Rome, une chaîne entourait également le blason, mais elle
+                            était plutôt issue de la bouche de l’Esprit saint : <blockquote>« Et
+                                però hò fatto che dalla bocca dello spirito santo / nasce una
+                                catena, la qual circondando l’Arma / cinge la Charità al traverso
+                                per dimostrar’ questa / esser la charità id cui parla S. Paolo
+                                Charitas / diffusa est in cordibus nostris per spiritum /
+                                    sanctum<note place="foot" xml:id="ftn6" n="6"><p> Romains, V, 5
+                                        (Épîtres de Saint Paul aux Romains) : «… l'amour de Dieu
+                                        [Charité de Dieu] est répandu dans nos cœurs par le Saint
+                                        Esprit … ».</p></note>/ » (fol. 13r = 24).</blockquote> Elle
+                            est aussi unie par des mains en prière : <blockquote>« Delle mani in
+                                fede, che uniscono per / certi luoghi la Catena. » (fol.
+                                33v=65).</blockquote>
+                        </p>
+                    </div>
+                    <div class="item" id="d2">
+                        <h3 class="subtitle">Les bambins nus</h3>
+                        <p>De part et d’autre de <a href="#theogonales04">la Charité</a>, se
+                            tiennent deux bambins nus, attributs traditionnels de cette vertu. Dans
+                            la vue de Rome, on en comptait trois. Leur signification est clairement
+                            expliquée dans le manuscrit: <blockquote>Hò poi dissegnato alcuni
+                                fanciulli nudi attorno / alla charità à dimostrar’ che S.
+                                    Beat.<sup>ne</sup> hà cura / de pusilli, e poveri. Hò fatto à
+                                uno di loro una Mi-/tra, all’altro una beretta à corna al terzo un
+                                libro / per dimostrar gli doni della charità esser divisi / dallo
+                                spirito santo secondo il bene placito suo et / per conseguente da S.
+                                    B.<sup>ne</sup> come da Istrum.<sup>to</sup> di quello./ (fol.
+                                13r = 24). </blockquote></p>
+
+                        <p>Les attributs indiqués dans le manuscrit sont absents dans le dessin.
+                            Righettino fait ici clairement référence à la politique d’aide aux
+                            pauvres et le développement d’œuvres à caractère social mis en place par
+                            Sixte Quint dès les premières années de son pontificat, un programme
+                            dont la finalité ultime était le renforcement de la foi et le Salut des
+                                âmes<note place="foot" xml:id="ftn7" n="7"><p rend="footnote text">
+                                    Annarosa Cerutti Fusco, « Per accrescimento del cuto divino, et
+                                    ajuto de poveri di Roma : opere a carattere sociale a Roma nel
+                                    pontificato di Sisto V », <hi rend="italic">Atti del XXIII
+                                        Congresso di storia dell’architettura</hi> [Rome, 24-26 mars
+                                    1988], Gianfranco Spagnesi (dir), Rome, 1989, p.
+                                395-401.</p></note>. </p>
+                    </div>
+                    <div class="item" id="d3">
+                        <h3 class="subtitle">Le feston d'aliments</h3>
+                        <p>Plusieurs aliments semblent être représentés au sein d’un feston, sur
+                            lequel <a href="#theogonales04">la Charité</a> est assise. La
+                            composition du feston dans le dessin diffère complètement de celle
+                            décrite dans le manuscrit comme suit : <blockquote>Siede questa virtù
+                                sopra un festone [...] diviso per due Gie-/rarchie Politica, et
+                                Ecclesiastica. Per dimos-/trare le cose della Gierarchia politica
+                                sono dis-/segnate nel festone corone d’Imperatori di Rè /
+                                d’Arciduchi, di Duchi e di Baroni Conti, / Capitani, e soldati varie
+                                insegne. Per dimos-/trar’ quelle dell’ecclesiastica, si vedono
+                                ca-pelli / da cardinali Mitre da Patriarchi, da Archie-/piscopi da
+                                episcopi da Abatti Berette da Mons.<sup>ri</sup> / da Preti habiti
+                                da canonici, et finalmente l’Ulti-/mo dono, che sono gli danari, et
+                                la charità vi siede sopra à dimostrare che S. S.<sup>tà</sup> dona
+                                queste cose tutte / non per’ affetto d’amicitia, ne per passione di
+                                Carne / e sangue, semplicemente, mà per meriti di virtù [...] (fol.
+                                12v=23 et 13r=24).</blockquote></p>
+
+                        <p>Le feston du plan de Turin est composé de tonneaux, de pressoirs, de sacs
+                            remplis de céréales, de boisseaux de bois, de coffres et vases remplis
+                            de nourriture, l’ensemble faisant clairement référence à l’abondance du
+                            territoire; une signification qui ne contrevient pas, du reste, au
+                            concept de la charité. Cette iconographie s’inscrit néanmoins plus
+                            clairement au sein de la symbolique d’ensemble des festons que nous
+                            tenterons d’éclaircir plus loin. </p>
+                    </div>
+                </div>
+                <div class="item" id="b1">
+                    <h3 class="title">Bibliographie</h3>
+                    <p> À compléter. </p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</Notice>

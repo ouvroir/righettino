@@ -1,6 +1,6 @@
 var tileSource = {
   type: 'image',
-  url: './public/View.png',
+  url: '../public/View.png',
 }
 
 var viewer = OpenSeadragon({
@@ -16,10 +16,10 @@ var viewer = OpenSeadragon({
 
 var hEl = viewer.HTMLelements()
 
-fetch('./public/faith.svg')
+fetch('../public/faith.svg')
   .then((res) => res.text())
   .then((data) => {
-    //   console.log(data)
+    // console.log(data)
     const parser = new DOMParser()
     const svg = parser.parseFromString(data, 'image/svg+xml').activeElement
 

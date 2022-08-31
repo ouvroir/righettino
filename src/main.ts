@@ -98,7 +98,7 @@ const goTo = (e) => {
 }
 
 
-const files = ['charity_proto.svg', 'faith_proto.svg', 'hope_proto.svg']
+const files = ['blason.svg', 'charite.svg', 'esperance.svg', 'foi.svg', 'forteresse.svg']
 const parser = new DOMParser()
 const ns = 'http://www.w3.org/2000/svg'
 
@@ -124,22 +124,18 @@ files.forEach((f, i) => {
       console.log(data)
       const svg = parser.parseFromString(data, 'image/svg+xml')
       console.log(svg)
-      const pattern = svg.getElementById('pattern0')
-      const image = Array.from(svg.getElementsByTagName('image'))[0]
-      const rect = Array.from(svg.getElementsByTagName('rect'))[0]
+      const path = Array.from(svg.getElementsByTagName('path'))[0]
 
       let id = 'pattern' + i
       pattern.setAttribute('id', id)
-      rect.setAttribute('fill', `url(#${id})`)
+      path.setAttribute('fill', `url(#${id})`)
 
-      rect.setAttribute('id', f)
-      rect.addEventListener('click', itemOnClick)
-      rect.addEventListener('mouseover', itemOnHover)
-      rect.addEventListener('mouseleave', itemOnLeave)
+      path.setAttribute('id', f)
+      path.addEventListener('click', itemOnClick)
+      path.addEventListener('mouseover', itemOnHover)
+      path.addEventListener('mouseleave', itemOnLeave)
 
-      itemsContainer.insertBefore(rect, defs)
-      defs.appendChild(pattern)
-      defs.appendChild(image)
+      itemsContainer.appendChild(path)
     })
 })
 

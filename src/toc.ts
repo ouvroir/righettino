@@ -53,5 +53,10 @@ document.querySelector('#header-btn-toc')?.addEventListener('click', (e) => {
     aside?.classList.remove('hide-aside')
 })
 
-
+document.querySelector('#header-btn-close')?.addEventListener('click', (e) => {
+    console.log('toc-btn : ', e.currentTarget)
+    const aside = document.querySelector('#maside')
+    aside?.classList.remove('hide-toc')
+    aside?.classList.add('hide-aside')
+})
 

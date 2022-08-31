@@ -74,8 +74,9 @@ const itemOnClick = (e) => {
 }
 
 const itemOnHover = (e) => {
-  const bg = document.getElementById('items-container-bg')
-  bg.style.fillOpacity = '50%'
+  const itemsBg = document.getElementById('items-bg')
+  itemsBg?.classList.add('highlight')
+  document.body.classList.add('highlight')
 
   files.forEach((f) => {
     if (f === e.target.id) return
@@ -84,8 +85,9 @@ const itemOnHover = (e) => {
   })
 }
 const itemOnLeave = (e) => {
-  const bg = document.getElementById('items-container-bg')
-  bg.style.fillOpacity = '0'
+  const itemsBg = document.getElementById('items-bg')
+  itemsBg?.classList.remove('highlight')
+  document.body.classList.remove('highlight')
 
   files.forEach((f) => {
     const item = document.getElementById(f)
@@ -98,46 +100,40 @@ const goTo = (e) => {
 }
 
 
-const files = ['blason.svg', 'charite.svg', 'esperance.svg', 'foi.svg', 'forteresse.svg']
+const files = ['test.svg']
 const parser = new DOMParser()
 const ns = 'http://www.w3.org/2000/svg'
 
 const itemsContainer = document.createElementNS(ns, 'svg')
 itemsContainer.classList.add('osd-items-container')
 itemsContainer.setAttribute('id', 'items-container')
-itemsContainer.setAttribute('viewBox', '0 0 579 431')
+itemsContainer.setAttribute('viewBox', '0 0 9645 7181')
 
-const backRect = itemsContainer.appendChild(
-  document.createElementNS(ns, 'rect')
-)
-backRect.setAttribute('id', 'items-container-bg')
-backRect.classList.add('osd-canvas-bg')
-backRect.style.x = '-1000px'
-backRect.style.y = '-1000px'
 
-const defs = itemsContainer.appendChild(document.createElementNS(ns, 'defs'))
+const itemsBg = document.createElementNS(ns, 'rect')
+itemsBg.classList.add('items-bg')
+itemsBg.id = 'items-bg'
+itemsBg.style.width = '200vw'
+itemsBg.style.height = '200vh'
+itemsContainer.appendChild(itemsBg)
+
 
 files.forEach((f, i) => {
   fetch('/data/svg/' + f)
     .then((res) => res.text())
     .then((data) => {
-      console.log(data)
       const svg = parser.parseFromString(data, 'image/svg+xml')
-      console.log(svg)
       const path = Array.from(svg.getElementsByTagName('path'))[0]
 
-      let id = 'pattern' + i
-      pattern.setAttribute('id', id)
-      path.setAttribute('fill', `url(#${id})`)
-
-      path.setAttribute('id', f)
       path.addEventListener('click', itemOnClick)
       path.addEventListener('mouseover', itemOnHover)
       path.addEventListener('mouseleave', itemOnLeave)
 
       itemsContainer.appendChild(path)
+
     })
 })
+
 
 hEl.addElement({
   id: 'hEl',

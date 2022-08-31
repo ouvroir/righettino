@@ -79,7 +79,8 @@ p {
 }
 
 .text-container-header {
-  position: fixed;
+  position: sticky;
+  display: flex;
   top: 0;
   height: 0.7rem;
   background-color: hsl(var(--body-bg-color) / 0.3);
@@ -87,6 +88,24 @@ p {
   border: 0;
   padding: 3vh;
   z-index: 5 !important;
+}
+
+.header-btn {
+  cursor: pointer;
+  margin: 0;
+}
+
+.header-btn-text {
+  margin-left: 0.5rem;
+}
+
+#header-btn-close {
+  width: 20px;
+  align-self: flex-end;
+}
+
+#header-btn-toc {
+  width: 20%;
 }
 
 #text-content::-webkit-scrollbar {
@@ -127,13 +146,7 @@ p {
   /* overflow-wrap: break-word; */
 }
 
-.header-btn {
-  cursor: pointer;
-}
 
-.header-btn-text {
-  margin-left: 0.5rem;
-}
 
 .toc-heading {
   display: flex;

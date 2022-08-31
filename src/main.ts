@@ -162,6 +162,13 @@ document.getElementById('toc-btn')?.addEventListener('click', (e) => {
   console.log(e)
 })
 
+document.getElementById('header-btn-close')?.addEventListener('click', (e) => {
+  const aside = document.querySelector('#maside')
+  aside?.classList.remove('show')
+  aside?.classList.add('hide-aside')
+  aside?.classList.add('hide-toc')
+})
+
 
 console.log(window)
 console.log('done setting up the app')

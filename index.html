@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/398deee16b.js" crossorigin="anonymous"></script>
+  <title>Righettino's view of Turin</title>
+</head>
+
+<body>
+  <div id="contentDiv" class="openseadragon"></div>
+  <div id="maside">
+
+    <div id="toc-container"></div>
+
+    <div id="text-container" class='text-container'>
+      <div class='text-container-header'>
+
+        <span class="header-btn" id="header-btn-toc">
+          <span class="icon">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <span class="header-btn-text">Table des contenus</span>
+        </span>
+        <!-- 
+        <span class="header-btn" id="header-btn-toc">
+          <span class="icon">
+            <i class="fa-solid fa-xmark"></i>
+          </span>
+          <span class="header-btn-text">Content</span>
+        </span> -->
+
+      </div>
+    </div>
+  </div>
+
+  <div id='toolbar'></div>
+  <script type="module" src="./src/openseadragon-svg-overlay.js"></script>
+  <script type="module" src="./src/OpenSeadragonHTMLelements.js"></script>
+  <script type="module" src="./src/main.ts"></script>
+  <script type="module" src="./src/toc.ts"></script>
+</body>
+
+</html>

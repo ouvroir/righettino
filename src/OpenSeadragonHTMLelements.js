@@ -1,5 +1,6 @@
+import OpenSeadragon from 'openseadragon'
 ;(function () {
-  var $ = window.OpenSeadragon
+  var $ = OpenSeadragon
 
   if (!$) {
     $ = require('openseadragon')
@@ -30,7 +31,7 @@
     // }
     this.elements = []
 
-    for (h of ['open', 'animation', 'rotate', 'flip', 'resize']) {
+    for (let h of ['open', 'animation', 'rotate', 'flip', 'resize']) {
       this.viewer.addHandler(h, function () {
         repositionElements(self.elements, self.viewer)
       })
@@ -48,7 +49,7 @@
     },
     addElement: function (e) {
       if (validateElement(e)) {
-        console.log(e)
+        // console.log(e)
         e.element.style.width = '100%'
         e.element.style.height = '100%'
         let wrapperDiv = document.createElement('div')
@@ -139,7 +140,7 @@ function validateElement(e) {
   const props = ['id', 'element', 'x', 'y', 'width', 'height']
   let isValid = true
   let errors = []
-  for (prop of props) {
+  for (let prop of props) {
     if (!(prop in e)) {
       isValid = false
       errors.push(prop)

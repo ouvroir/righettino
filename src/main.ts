@@ -5,11 +5,6 @@ import OpenSeadragonViewerInputHook from '@openseadragon-imaging/openseadragon-v
 
 console.log('Using OpenseaDragon version', OpenSeadragon.version.versionStr)
 
-const tileSource = {
-  type: 'image',
-  url: './View.png',
-}
-
 const viewer = OpenSeadragon({
   id: 'contentDiv',
   toolbar: 'toolbar',
@@ -26,15 +21,15 @@ const viewport = viewer.viewport
 
 
 // ---------------------------
-//      Dealing with plugins
+//    Dealing with plugins
 // ---------------------------
 
 const onViewerClick = (event: any) => {
-  console.log(viewport.windowToViewportCoordinates(event.position))
+  // console.log(viewport.windowToViewportCoordinates(event.position))
   event.preventDefaultAction = true
 
   // if toc is open : close it 
-  console.log('closing toc')
+  // console.log('closing toc')
   const aside = document.querySelector('#maside')
   aside?.classList.add('hide-toc')
 }
@@ -56,7 +51,7 @@ new OpenSeadragonViewerInputHook({
   ]
 });
 
-const itemOnClick = (e) => {
+const itemOnClick = (e: any) => {
   console.log('clicked', e)
   console.log('clicked', e.target.id)
 
@@ -74,23 +69,20 @@ const itemOnClick = (e) => {
 }
 
 const itemOnHover = (e) => {
-  const bg = document.getElementById('items-container-bg')
-  bg.style.fillOpacity = '50%'
+  const itemsBg = document.getElementById('items-bg')
+  itemsBg?.setAttribute('mask', 'url(#mask)')
+  itemsBg?.setAttribute('fill-opacity', '50%')
+  itemsBg?.setAttribute('fill', 'black')
 
-  files.forEach((f) => {
-    if (f === e.target.id) return
-    const item = document.getElementById(f)
-    item.style.fillOpacity = '30%'
-  })
+  // document.body.classList.add('highlight')
 }
-const itemOnLeave = (e) => {
-  const bg = document.getElementById('items-container-bg')
-  bg.style.fillOpacity = '0'
 
-  files.forEach((f) => {
-    const item = document.getElementById(f)
-    item.style.fillOpacity = '100%'
-  })
+const itemOnLeave = (e) => {
+  const itemsBg = document.getElementById('items-bg')
+  itemsBg?.classList.remove('highlight')
+  itemsBg?.removeAttribute('mask')
+  itemsBg?.setAttribute('fill-opacity', '0%')
+
 }
 
 const goTo = (e) => {
@@ -98,48 +90,52 @@ const goTo = (e) => {
 }
 
 
-const files = ['charity_proto.svg', 'faith_proto.svg', 'hope_proto.svg']
+const files = ['test.svg']
 const parser = new DOMParser()
 const ns = 'http://www.w3.org/2000/svg'
 
 const itemsContainer = document.createElementNS(ns, 'svg')
 itemsContainer.classList.add('osd-items-container')
 itemsContainer.setAttribute('id', 'items-container')
-itemsContainer.setAttribute('viewBox', '0 0 579 431')
+itemsContainer.setAttribute('viewBox', '0 0 9645 7181')
 
-const backRect = itemsContainer.appendChild(
-  document.createElementNS(ns, 'rect')
-)
-backRect.setAttribute('id', 'items-container-bg')
-backRect.classList.add('osd-canvas-bg')
-backRect.style.x = '-1000px'
-backRect.style.y = '-1000px'
+const mask = document.createElementNS(ns, 'mask')
+mask.id = 'mask'
+itemsContainer.appendChild(mask)
 
-const defs = itemsContainer.appendChild(document.createElementNS(ns, 'defs'))
+const maskBg = document.createElementNS(ns, 'rect')
+maskBg.id = 'mask-bg'
+maskBg.style.width = '10000vw'
+maskBg.style.height = '10000vh'
+maskBg.style.x = '-1000vh'
+maskBg.style.y = '-1000vh'
+maskBg.setAttribute('fill', 'white')
 
-files.forEach((f, i) => {
+mask.appendChild(maskBg)
+
+const itemsBg = maskBg.cloneNode(true)
+itemsBg.id = 'items-bg'
+itemsBg.setAttribute('fill-opacity', '0%')
+itemsContainer.appendChild(itemsBg)
+
+
+files.forEach((f) => {
   fetch('/data/svg/' + f)
     .then((res) => res.text())
     .then((data) => {
-      console.log(data)
       const svg = parser.parseFromString(data, 'image/svg+xml')
-      console.log(svg)
-      const pattern = svg.getElementById('pattern0')
-      const image = Array.from(svg.getElementsByTagName('image'))[0]
-      const rect = Array.from(svg.getElementsByTagName('rect'))[0]
+      const path = Array.from(svg.getElementsByTagName('path'))[0]
+      path.setAttribute('fill', 'black')
+      mask.appendChild(path)
 
-      let id = 'pattern' + i
-      pattern.setAttribute('id', id)
-      rect.setAttribute('fill', `url(#${id})`)
+      let pathClone = path.cloneNode(true)
+      pathClone.setAttribute('fill', 'none')
 
-      rect.setAttribute('id', f)
-      rect.addEventListener('click', itemOnClick)
-      rect.addEventListener('mouseover', itemOnHover)
-      rect.addEventListener('mouseleave', itemOnLeave)
+      pathClone.addEventListener('onclick', itemOnClick)
+      pathClone.addEventListener('mouseover', itemOnHover)
+      pathClone.addEventListener('mouseleave', itemOnLeave)
 
-      itemsContainer.insertBefore(rect, defs)
-      defs.appendChild(pattern)
-      defs.appendChild(image)
+      itemsContainer.appendChild(pathClone)
     })
 })
 
@@ -151,11 +147,6 @@ hEl.addElement({
   width: 9645,
   height: 7181,
 })
-
-setTimeout(() => {
-  const container = document.getElementById('maside')
-  container.classList.add('show')
-}, 3000)
 
 
 document.getElementById('toc-btn')?.addEventListener('click', (e) => {

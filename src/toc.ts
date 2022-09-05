@@ -2,7 +2,7 @@ const tocContainer = document.getElementById('toc-container')
 const parser = new DOMParser()
 const currentFile = ''
 
-fetch('/data/xml/chapter1.xml')
+fetch('/data/xml/chapter2.xml')
     .then(res => res.text())
     .then(data => {
         const doc = parser.parseFromString(data, 'text/html')
@@ -13,7 +13,7 @@ fetch('/data/xml/chapter1.xml')
             return
         }
         const container = document.querySelector('#text-container')
-        console.log(container)
+        // console.log(container)
         container?.append(chapters)
     })
 
@@ -47,14 +47,14 @@ fetch('/data/toc.html')
     })
 
 document.querySelector('#header-btn-toc')?.addEventListener('click', (e) => {
-    console.log('toc-btn : ', e.currentTarget)
+    // console.log('toc-btn : ', e.currentTarget)
     const aside = document.querySelector('#maside')
     aside?.classList.remove('hide-toc')
     aside?.classList.remove('hide-aside')
 })
 
 document.querySelector('#header-btn-close')?.addEventListener('click', (e) => {
-    console.log('toc-btn : ', e.currentTarget)
+    // console.log('toc-btn : ', e.currentTarget)
     const aside = document.querySelector('#maside')
     aside?.classList.remove('hide-toc')
     aside?.classList.add('hide-aside')

@@ -3,8 +3,6 @@ import OpenSeadragon from 'openseadragon'
 import OpenSeadragonViewerInputHook from '@openseadragon-imaging/openseadragon-viewerinputhook'
 
 
-console.log('Using OpenseaDragon version', OpenSeadragon.version.versionStr)
-
 const viewer = OpenSeadragon({
   id: 'contentDiv',
   toolbar: 'toolbar',
@@ -21,7 +19,7 @@ const viewport = viewer.viewport
 
 
 // ---------------------------
-//    Dealing with plugins
+//    Openseadragon stuff
 // ---------------------------
 
 const onViewerClick = (event: any) => {
@@ -51,6 +49,15 @@ new OpenSeadragonViewerInputHook({
   ]
 });
 
+const goTo = (e) => {
+  // get x, y position of cursor on viewport
+}
+
+
+// ---------------------------
+//    Dealing with items
+// ---------------------------
+
 const itemOnClick = (e: any) => {
   console.log('clicked', e)
   console.log('clicked', e.target.id)
@@ -69,12 +76,15 @@ const itemOnClick = (e: any) => {
 }
 
 const itemOnHover = (e) => {
+  // get id and update mask items
+  console.log(e.currentTarget.id)
+
+  updateMaskItems([e.currentTarget.id])
+
   const itemsBg = document.getElementById('items-bg')
   itemsBg?.setAttribute('mask', 'url(#mask)')
-  itemsBg?.setAttribute('fill-opacity', '50%')
+  itemsBg?.setAttribute('fill-opacity', '30%')
   itemsBg?.setAttribute('fill', 'black')
-
-  // document.body.classList.add('highlight')
 }
 
 const itemOnLeave = (e) => {
@@ -82,16 +92,22 @@ const itemOnLeave = (e) => {
   itemsBg?.classList.remove('highlight')
   itemsBg?.removeAttribute('mask')
   itemsBg?.setAttribute('fill-opacity', '0%')
-
 }
 
-const goTo = (e) => {
-  // get x, y position of cursor on viewport
+const updateMaskItems = (files: [string]) => {
+
+  document
+    .querySelectorAll('#mask > path')
+    .forEach(p => p.remove())
+
+  files.forEach(f => {
+    let maskItem = ITEMS[f].cloneNode()
+    maskItem.id = f
+    maskItem.setAttribute('fill', 'black')
+    mask.appendChild(maskItem)
+  })
 }
 
-
-const files = ['test.svg']
-const parser = new DOMParser()
 const ns = 'http://www.w3.org/2000/svg'
 
 const itemsContainer = document.createElementNS(ns, 'svg')
@@ -118,26 +134,31 @@ itemsBg.id = 'items-bg'
 itemsBg.setAttribute('fill-opacity', '0%')
 itemsContainer.appendChild(itemsBg)
 
+globalThis.ITEMS = {}
 
-files.forEach((f) => {
-  fetch('/data/svg/' + f)
-    .then((res) => res.text())
-    .then((data) => {
-      const svg = parser.parseFromString(data, 'image/svg+xml')
-      const path = Array.from(svg.getElementsByTagName('path'))[0]
-      path.setAttribute('fill', 'black')
-      mask.appendChild(path)
+const initApp = (): void => {
+  // TODO : files must be read from documents?
+  const parser = new DOMParser()
+  const files = ['faith.svg', 'blazon.svg', 'charity.svg', 'hope.svg']
 
-      let pathClone = path.cloneNode(true)
-      pathClone.setAttribute('fill', 'none')
+  files.forEach(f => {
+    fetch('/data/svg/' + f)
+      .then((res) => res.text())
+      .then((data) => {
+        console.log(f)
+        const svg = parser.parseFromString(data, 'image/svg+xml')
+        const path = Array.from(svg.getElementsByTagName('path'))[0]
 
-      pathClone.addEventListener('onclick', itemOnClick)
-      pathClone.addEventListener('mouseover', itemOnHover)
-      pathClone.addEventListener('mouseleave', itemOnLeave)
+        path.setAttribute('fill', 'none')
+        path.addEventListener('onclick', itemOnClick)
+        path.addEventListener('mouseover', itemOnHover)
+        path.addEventListener('mouseleave', itemOnLeave)
+        itemsContainer.appendChild(path)
 
-      itemsContainer.appendChild(pathClone)
-    })
-})
+        ITEMS[f] = path
+      })
+  })
+}
 
 hEl.addElement({
   id: 'hEl',
@@ -161,5 +182,6 @@ document.getElementById('header-btn-close')?.addEventListener('click', (e) => {
 })
 
 
-console.log(window)
-console.log('done setting up the app')
+initApp()
+console.log('Done setting up the app')
+console.log('Using OpenseaDragon version', OpenSeadragon.version.versionStr)

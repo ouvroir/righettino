@@ -26,7 +26,12 @@ path {
 }
 
 #items-bg {
-  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  transition: all 0.4s;
 }
 
 .openseadragon {
@@ -46,19 +51,6 @@ path {
   height: 200vh;
   fill: hsl(0 0% 0%);
   fill-opacity: 0%;
-}
-
-.highlight {
-  fill: 'black';
-  /* filter: invert(100%); */
-}
-
-#items-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200vw;
-  height: 200vh;
 }
 
 #maside {

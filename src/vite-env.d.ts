@@ -5,7 +5,7 @@ declare var ITEMS: { [filename: string]: SVGPathElement }
 declare var SECTIONS: {
     [sectionId: string]: {
         files: string[] | undefined,
-        zoom: int[] | undefined
+        zoom: number[] | undefined
     }
 }
 

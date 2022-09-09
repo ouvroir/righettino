@@ -1,5 +1,9 @@
-import { highlightItems, unHighlightItems, updateMaskItems } from './helpers'
-
+import {
+   highlightItems,
+   unHighlightItems,
+   updateMaskItems,
+   initObserver
+} from './helpers'
 
 const tocContainer = document.getElementById('toc-container')
 const parser = new DOMParser()
@@ -18,6 +22,8 @@ fetch('/data/xml/chapter1_2.xml')
       // console.log(container)
 
       container?.appendChild(chapters)
+
+      initObserver()
    })
 
 fetch('/data/toc.html')

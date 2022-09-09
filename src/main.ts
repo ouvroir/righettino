@@ -1,112 +1,99 @@
 import './style.css'
 import OpenSeadragon from 'openseadragon'
 import OpenSeadragonViewerInputHook from '@openseadragon-imaging/openseadragon-viewerinputhook'
-
-
-const viewer = OpenSeadragon({
-  id: 'contentDiv',
-  toolbar: 'toolbar',
-  prefixUrl:
-    'https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/',
-  tileSources: {
-    type: 'image',
-    url: '/View.png',
-  },
-  minZoomLevel: 0.5,
-})
-
-const viewport = viewer.viewport
+import OpenSeadragonImagingHelper from '@openseadragon-imaging/openseadragon-imaginghelper';
+import { updateMaskItems, highlightItems, unHighlightItems } from './helpers'
 
 
 // ---------------------------
 //    Openseadragon stuff
 // ---------------------------
 
-const onViewerClick = (event: any) => {
-  // console.log(viewport.windowToViewportCoordinates(event.position))
-  event.preventDefaultAction = true
+globalThis.viewer = OpenSeadragon({
+   id: 'contentDiv',
+   toolbar: 'invisible',
+   prefixUrl:
+      'https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/',
+   tileSources: {
+      type: 'image',
+      url: '/View.png',
+   },
+   minZoomLevel: 0.5,
+})
 
-  // if toc is open : close it 
-  // console.log('closing toc')
-  const aside = document.querySelector('#maside')
-  aside?.classList.add('hide-toc')
+globalThis.viewport = viewer.viewport
+
+const onViewerClick = (e: any) => {
+   // console.log(viewport.windowToViewportCoordinates(e.position))
+   e.preventDefaultAction = true
+
+   // if toc is open : close it 
+   // console.log('closing toc')
+   const aside = document.querySelector('#maside')
+   aside?.classList.add('hide-toc')
+   aside?.classList.add('hide-aside')
+   aside?.classList.remove('show-toc-only')
 }
-const onViewerDblClick = (event: any) => {
-  viewport.zoomTo(
-    viewport.getZoom() + 1,
-    viewport.windowToViewportCoordinates(event.position),
-    false
-  );
+
+const onViewerDblClick = (e: any) => {
+   viewport.zoomTo(
+      viewport.getZoom() + 1,
+      viewport.windowToViewportCoordinates(e.position),
+      false
+   );
 }
 
 const hEl = viewer.HTMLelements()
 
 new OpenSeadragonViewerInputHook({
-  viewer: viewer,
-  hooks: [
-    { tracker: 'viewer', handler: 'clickHandler', hookHandler: onViewerClick },
-    { tracker: 'viewer', handler: 'dblClickHandler', hookHandler: onViewerDblClick },
-  ]
+   viewer: viewer,
+   hooks: [
+      { tracker: 'viewer', handler: 'clickHandler', hookHandler: onViewerClick },
+      { tracker: 'viewer', handler: 'dblClickHandler', hookHandler: onViewerDblClick },
+   ]
 });
 
-const goTo = (e) => {
-  // get x, y position of cursor on viewport
-}
-
-
+globalThis.imagingHelper = new OpenSeadragonImagingHelper({ viewer: viewer });
+imagingHelper.addHandler('image-view-changed', (e) => {
+   // event.viewportWidth == width of viewer viewport in logical coordinates relative to image native size
+   // event.viewportHeight == height of viewer viewport in logical coordinates relative to image native size
+   // event.viewportOrigin == OpenSeadragon.Point, top-left of the viewer viewport in logical coordinates relative to image
+   // event.viewportCenter == OpenSeadragon.Point, center of the viewer viewport in logical coordinates relative to image
+   // event.zoomFactor == current zoom factor
+   // console.log({
+   //    width: e.viewportWidth,
+   //    height: e.viewportHeight,
+   //    origin: e.viewportOrigin,
+   //    center: e.viewportCenter,
+   //    zoomfactor: e.zoomFactor
+   // })
+});
 // ---------------------------
 //    Dealing with items
 // ---------------------------
 
 const itemOnClick = (e: any) => {
-  console.log('clicked', e)
-  console.log('clicked', e.target.id)
+   console.log('clicked', e)
+   console.log('clicked', e.target.id)
 
-  const position = viewport.windowToViewportCoordinates(
-    new OpenSeadragon.Point(e.clientX, e.clientY)
-  )
+   const position = viewport.windowToViewportCoordinates(
+      new OpenSeadragon.Point(e.clientX, e.clientY)
+   )
 
-  console.log(position)
+   console.log(position)
 
-  viewer.viewport.zoomTo(
-    viewer.viewport.getZoom() + 3,
-    position,
-    false
-  );
+   viewer.viewport.zoomTo(
+      viewer.viewport.getZoom() + 3,
+      position,
+      false
+   );
 }
 
 const itemOnHover = (e) => {
-  // get id and update mask items
-  console.log(e.currentTarget.id)
-
-  updateMaskItems([e.currentTarget.id])
-
-  const itemsBg = document.getElementById('items-bg')
-  itemsBg?.setAttribute('mask', 'url(#mask)')
-  itemsBg?.setAttribute('fill-opacity', '30%')
-  itemsBg?.setAttribute('fill', 'black')
+   updateMaskItems([e.currentTarget.id])
+   highlightItems()
 }
 
-const itemOnLeave = (e) => {
-  const itemsBg = document.getElementById('items-bg')
-  itemsBg?.classList.remove('highlight')
-  itemsBg?.removeAttribute('mask')
-  itemsBg?.setAttribute('fill-opacity', '0%')
-}
-
-const updateMaskItems = (files: [string]) => {
-
-  document
-    .querySelectorAll('#mask > path')
-    .forEach(p => p.remove())
-
-  files.forEach(f => {
-    let maskItem = ITEMS[f].cloneNode()
-    maskItem.id = f
-    maskItem.setAttribute('fill', 'black')
-    mask.appendChild(maskItem)
-  })
-}
 
 const ns = 'http://www.w3.org/2000/svg'
 
@@ -134,54 +121,72 @@ itemsBg.id = 'items-bg'
 itemsBg.setAttribute('fill-opacity', '0%')
 itemsContainer.appendChild(itemsBg)
 
+
 globalThis.ITEMS = {}
+globalThis.SECTIONS = {}
 
 const initApp = (): void => {
-  // TODO : files must be read from documents?
-  const parser = new DOMParser()
-  const files = ['faith.svg', 'blazon.svg', 'charity.svg', 'hope.svg']
+   // TODO : files must be read from documents?
+   const parser = new DOMParser()
+   const files = ['faith.svg', 'blazon.svg', 'charity.svg', 'hope.svg']
 
-  files.forEach(f => {
-    fetch('/data/svg/' + f)
-      .then((res) => res.text())
-      .then((data) => {
-        console.log(f)
-        const svg = parser.parseFromString(data, 'image/svg+xml')
-        const path = Array.from(svg.getElementsByTagName('path'))[0]
+   // Create dict items
+   files.forEach(f => {
+      fetch('/data/svg/' + f)
+         .then((res) => res.text())
+         .then((data) => {
+            console.log(f)
+            const svg = parser.parseFromString(data, 'image/svg+xml')
+            const path = Array.from(svg.getElementsByTagName('path'))[0]
 
-        path.setAttribute('fill', 'none')
-        path.addEventListener('onclick', itemOnClick)
-        path.addEventListener('mouseover', itemOnHover)
-        path.addEventListener('mouseleave', itemOnLeave)
-        itemsContainer.appendChild(path)
+            path.setAttribute('fill', 'none')
+            path.addEventListener('onclick', itemOnClick)
+            path.addEventListener('mouseover', itemOnHover)
+            path.addEventListener('mouseleave', unHighlightItems)
+            itemsContainer.appendChild(path)
 
-        ITEMS[f] = path
+            ITEMS[f] = path
+         })
+   })
+   // Create section dict (section_name -> files/zoom)
+   fetch('/data/xml/chapter1_2.xml')
+      .then(res => res.text())
+      .then(data => {
+         const doc = parser.parseFromString(data, 'application/xml')
+         doc.querySelectorAll('*[files], *[zoom]').forEach(e => {
+            SECTIONS[e.id] = {
+               files: e.getAttribute('files')?.split(','),
+               zoom: e.getAttribute('zoom')?.split(',').map(s => parseInt(s))
+            }
+         })
       })
-  })
+
+   console.log(SECTIONS)
 }
 
 hEl.addElement({
-  id: 'hEl',
-  element: itemsContainer,
-  x: 3,
-  y: -3,
-  width: 9645,
-  height: 7181,
+   id: 'hEl',
+   element: itemsContainer,
+   x: 3,
+   y: -3,
+   width: 9645,
+   height: 7181,
 })
 
-
 document.getElementById('toc-btn')?.addEventListener('click', (e) => {
-  console.log(e)
+   console.log(e)
 })
 
 document.getElementById('header-btn-close')?.addEventListener('click', (e) => {
-  const aside = document.querySelector('#maside')
-  aside?.classList.remove('show')
-  aside?.classList.add('hide-aside')
-  aside?.classList.add('hide-toc')
+   const aside = document.querySelector('#maside')
+   aside?.classList.remove('show')
+   aside?.classList.add('hide-aside')
+   aside?.classList.add('hide-toc')
 })
-
 
 initApp()
 console.log('Done setting up the app')
 console.log('Using OpenseaDragon version', OpenSeadragon.version.versionStr)
+document.querySelector('#maside')?.classList.add('show-toc-only')
+document.querySelector('#maside')?.classList.remove('hide-toc')
+document.querySelector('#maside')?.classList.remove('hide-aside')

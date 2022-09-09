@@ -11,13 +11,13 @@
 
 <body>
   <div id="contentDiv" class="openseadragon"></div>
-  <div id="maside hide-toc hide-aside">
+  <div id="maside" class="hide-toc hide-aside">
 
     <div id="toc-container"></div>
 
     <div id="text-container" class='text-container'>
-      <div class='text-container-header'>
 
+      <!-- <div class='text-container-header'>
         <span class="header-btn" id="header-btn-toc">
           <span class="icon">
             <i class="fa-solid fa-bars"></i>
@@ -30,12 +30,42 @@
             <i class="fa-solid fa-xmark"></i>
           </span>
         </span>
+      </div> -->
 
-      </div>
     </div>
   </div>
 
-  <div id='toolbar'></div>
+  <div id='toolbar'>
+
+    <div class="toolbar-btn" id="btn-toggle-toc">
+      <span class="icon">
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+      </span>
+      <p class="label">TOC</p>
+    </div>
+
+    <div class="toolbar-btn" id="btn-toggle-text">
+      <span class="icon">
+        <i class="fa-solid fa-file-lines fa-xl"></i>
+      </span>
+      <p class="label">Text</p>
+    </div>
+    <div class="toolbar-btn" id="btn-highlight">
+      <span class="icon">
+        <i class="fa-regular fa-lightbulb fa-xl"></i>
+      </span>
+      <p class="label">highlight</p>
+    </div>
+
+    <div class="toolbar-btn" id="btn-leave">
+      <span class="icon">
+        <i class="fa-solid fa-xmark fa-xl"></i>
+      </span>
+      <p class="label">leave</p>
+    </div>
+  </div>
+
+  <div id="invisible"></div>
   <script type="module" src="./src/openseadragon-svg-overlay.js"></script>
   <script type="module" src="./src/OpenSeadragonHTMLelements.js"></script>
   <script type="module" src="./src/main.ts"></script>

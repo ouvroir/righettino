@@ -25,6 +25,14 @@ path {
   pointer-events: all;
 }
 
+path {
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+}
+
 #items-bg {
   position: absolute;
   top: 0;
@@ -74,20 +82,42 @@ path {
   left: -100% !important
 }
 
+.show-toc-only {
+  left: 0%;
+  width: 27vw !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.show-toc-only>#text-container {
+  position: absolute;
+  left: -200%;
+  top: 0%;
+}
+
+.show-toc-only>#toc-container {
+  width: 100%
+}
+
 #text-container {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+
 }
 
 p {
-  line-height: 170%;
-  text-align: justify;
+  line-height: 180%;
+  /* text-align: justify; */
+}
+
+h1 {
+  border-bottom: solid 1px grey;
 }
 
 #text-content {
   margin: 0;
-  padding: var(--aside-padding);
+  padding: 8vh;
   height: 94vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -111,7 +141,6 @@ p {
   width: 100%;
   cursor: pointer;
   margin: 0 auto;
-
 }
 
 .header-btn-text {
@@ -139,10 +168,6 @@ p {
 
 #toc-container::-webkit-scrollbar-thumb {
   background-color: #F5F5F5;
-}
-
-#toolbar {
-  visibility: hidden;
 }
 
 #toc-container {
@@ -198,7 +223,6 @@ p {
   transition: opacity 0.2s ease-in-out;
 }
 
-
 .toc-header-1 {
   font-weight: 200;
 }
@@ -215,7 +239,6 @@ p {
   left: 2rem;
 }
 
-
 .toc-header-1:hover,
 .toc-header-2:hover,
 .toc-header-3:hover,
@@ -223,6 +246,55 @@ p {
   font-weight: 400;
 }
 
-h1 {
+#invisible {
+  visibility: hidden;
+}
+
+#toolbar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  /* background-color: hsl(var(--body-bg-color) / 0.7); */
+  width: 300px;
+  height: 60px;
+  top: 20px;
+  right: 0px;
+  margin-bottom: 20%;
+  gap: 10%;
+  padding-left: 1rem;
+}
+
+.toolbar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 50px;
+}
+
+.icon {
+  margin: auto;
+  width: 20px;
+  cursor: pointer;
+}
+
+.toolbar-btn>p {
+  margin: auto;
+  color: hsl(0 0% 0% / 0%);
+  font-size: 11px;
+  font-weight: 300;
+  transition: color 0.2s ease-in-out;
+}
+
+.toolbar-btn:hover>p {
+  color: hsl(0 0% 0% / 100%);
+}
+
+.label {
+  align-self: baseline;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: 100;
 }

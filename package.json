@@ -12,6 +12,7 @@
     "vite": "^2.9.15"
   },
   "dependencies": {
+    "@openseadragon-imaging/openseadragon-imaginghelper": "^2.2.2",
     "@openseadragon-imaging/openseadragon-viewerinputhook": "^2.2.1",
     "@types/openseadragon": "^3.0.3",
     "bulma": "^0.9.4",

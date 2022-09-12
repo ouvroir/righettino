@@ -9,6 +9,8 @@ declare var SECTIONS: {
     }
 }
 
+declare var keepHighlight: boolean
+
 declare var viewer: OpenSeadragon.Viewer
 declare var viewport: OpenSeadragon.Viewer.viewport
 declare var imagingHelper: imagingHelper

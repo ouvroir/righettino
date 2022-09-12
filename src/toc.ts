@@ -66,7 +66,6 @@ fetch('/data/toc.html')
             if (!(href in SECTIONS)) return
 
             const { files } = SECTIONS[href]
-            console.log('updating SECTIONS with files', files)
             updateMaskItems(files)
             highlightItems('30%')
          })

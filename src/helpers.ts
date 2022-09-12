@@ -1,9 +1,12 @@
 export const updateMaskItems = (files: string[]) => {
+   // remove all path from mask
    document
       .querySelectorAll('#mask > path')
       .forEach(p => p.remove())
 
+   // add paths to mask
    files.forEach(f => {
+      if (!(f in ITEMS)) console.warn(f, 'not in ITEMS')
       let maskItem = ITEMS[f].cloneNode()
       maskItem.id = f
       maskItem.setAttribute('fill', 'black')
@@ -41,7 +44,7 @@ export const initObserver = () => {
    const observer = new IntersectionObserver(
       handleIntersection,
       {
-         rootMargin: '-200px',
+         rootMargin: '-250px',
          threshold: 0.5
       }
    )
@@ -53,13 +56,14 @@ export const initObserver = () => {
       })
 }
 
-export const goTo = (zoom) => {
+export const goTo = (zoom: Float32Array) => {
    if (!zoom) return
    imagingHelper.setView(zoom[2], zoom[3], { x: zoom[0], y: zoom[1] })
 }
 
 const handleIntersection = (entries: IntersectionObserverEntry[]) => {
    entries.map(entry => {
+      globalThis.keepHighlight = true
       if (entry.isIntersecting) {
          const targetId = entry.target.id
 

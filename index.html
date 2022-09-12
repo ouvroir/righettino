@@ -1,75 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/398deee16b.js" crossorigin="anonymous"></script>
-  <title>Righettino's view of Turin</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/398deee16b.js" crossorigin="anonymous"></script>
+    <title>Righettino @ Ouvroir</title>
 </head>
 
+<link href="./src/style_home.css" rel="stylesheet">
+
 <body>
-  <div id="contentDiv" class="openseadragon"></div>
-  <div id="maside" class="hide-toc hide-aside">
-
-    <div id="toc-container"></div>
-
-    <div id="text-container" class='text-container'>
-
-      <!-- <div class='text-container-header'>
-        <span class="header-btn" id="header-btn-toc">
-          <span class="icon">
-            <i class="fa-solid fa-bars"></i>
-          </span>
-          <span class="header-btn-text">Table des contenus</span>
-        </span>
-
-        <span class="header-btn" id="header-btn-close">
-          <span class="icon">
-            <i class="fa-solid fa-xmark"></i>
-          </span>
-        </span>
-      </div> -->
-
-    </div>
-  </div>
-
-  <div id='toolbar'>
-
-    <div class="toolbar-btn" id="btn-toggle-toc">
-      <span class="icon">
-        <i class="fa-solid fa-list-ol fa-xl"></i>
-      </span>
-      <p class="label">TOC</p>
+    <div class="section" id='home'>
+        <div class="center-title">
+            <span class="upper">Projet</span>
+            <h1>Righettino</h1>
+            <span class="bottom">Conçu et implémenté @ <a href="https://ouvroir.umontreal.ca/">Ouvroir</a></span>
+            <div class="btn-container">
+                <div class="btn"><a href="/app.html">Lancer la démo</a></div>
+                <span class="version">v. alpha</span>
+            </div>
+        </div>
     </div>
 
-    <div class="toolbar-btn" id="btn-toggle-text">
-      <span class="icon">
-        <i class="fa-solid fa-file-lines fa-xl"></i>
-      </span>
-      <p class="label">Text</p>
-    </div>
-    <div class="toolbar-btn" id="btn-highlight">
-      <span class="icon">
-        <i class="fa-regular fa-lightbulb fa-xl"></i>
-      </span>
-      <p class="label">highlight</p>
+    <div id='origine' class="section">
+        <div class="center-content">
+            <div class="text-content">
+                <div class="left">
+                    <h2>Origines du projet</h2>
+                    <p class="subtitle"><i>Recherche d’une herméneutique visuelle digitale : les dessins
+                            allégoriques et topographiques de Girolamo Righettino </i></p>
+                </div>
+                <div class="right">
+                    <p>Le dessinateur amateur Girolamo Righettino est
+                        connu pour ses dessins de ville italiens présentant
+                        des cadres allégoriques richement ornés réalisés à la
+                        fin 16e siècle. Sa seule œuvre qui nous soit parvenue
+                        est une vue de Turin, datant de 1583, actuellement
+                        conservée aux Archives nationales de Turin. Cette
+                        œuvre, richement détaillée et extraordinairement
+                        complexe en terme de programme allégorique est
+                        pour ainsi dire impossible à publier dans le cadre du
+                        format traditionnel du livre sans perdre beaucoup
+                        de son attrait. Ce projet qui consiste en la
+                        publication numérique du dessin et du texte
+                        manuscrit rédigé par Righettino expliquant sa
+                        signification, est l’occasion de réfléchir à la manière
+                        dont la publication numérique en histoire de l’art
+                        peut permette d’accompagner de meilleures lectures
+                        des images de la Renaissance, en particulier de
+                        celles qui possèdent des structures diagrammatiques
+                        et qui jouent sur la combinaison de divers modes de
+                        représentation.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="toolbar-btn" id="btn-leave">
-      <span class="icon">
-        <i class="fa-solid fa-xmark fa-xl"></i>
-      </span>
-      <p class="label">leave</p>
-    </div>
-  </div>
+    <!-- <div class="separator"></div> -->
 
-  <div id="invisible"></div>
-  <script type="module" src="./src/openseadragon-svg-overlay.js"></script>
-  <script type="module" src="./src/OpenSeadragonHTMLelements.js"></script>
-  <script type="module" src="./src/main.ts"></script>
-  <script type="module" src="./src/toc.ts"></script>
+    <div id='righettino' class="section">
+        <div class="center-content">
+            <div class="text-content">
+                <div class="left">
+                    <h2>Righettino</h2>
+                </div>
+                <div class="right">
+                    <p>
+                        Le théologien et dessinateur amateur oublié Girolamo Righettino a réalisé des dessins
+                        très élaborés de vues de villes avec des cadres allégoriques ornés dans la seconde
+                        moitié du XVIe siècle. Son seul travail existant est la vue de Turin de 1583 conservée
+                        aujourd'hui aux Archives nationales de Turin.
+                    </p>
+                    <p>
+
+                        Frère chanoine de l'ordre des Augustins du Latran rattaché durant sa carrière,
+                        dans la seconde moitié du XVIe siècle, au couvent de Santa Maria della Carità à Venise.
+                        Cet homme, Righettino, qui a été pratiquement oublié, a développé une activité de dessinateur
+                        de vues de villes aux cadres exceptionnellement élaborés, remplis de figures et d'objets
+                        allégoriques. 
+                        Nous savons qu'il a acquis une certaine renommée, comme le rapporte par exemple le chapitre sur
+                        la chorographie dans <i>La piazza di tutte le professioni del mondo</i> écrit par son collègue
+                        de l'ordre du
+                        Latran, Tommaso Garzoni.
+                        Righettino a réalisé plusieurs de ces vues de ville et les a apportées en cadeau à des princes
+                        importants tels que Francesco de' Medici,
+                        le duc Emmanuele Filiberto de Savoie ou le pape Sixte V, obtenant ainsi de splendides
+                        récompenses.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="separator"></div> -->
+
+    <div id="dessin" class="section">
+        <div class="center-content">
+            <div class="text-content">
+                <div class="left">
+                    <h2>Le manuscrit</h2>
+                </div>
+                <div class="right">
+                    <p>Il s'agit d'un manuscrit conservé dans la <i>Biblioteca Federiciana de Fano</i>, dans
+                        les Marches italiennes, qui décrit une vue perdue de Rome offerte au pape Sixte V en 1585.
+                        Le pape, ravi du cadeau de Righettino, lui demanda d'expliquer par écrit la signification
+                        très complexe de la vue.Le manuscrit de 80 pages écrit par Righettino lui-même et dédié au
+                        cardinal Rusticucci, qui lui a accordé l'audience avec le pape.
+                    </p>
+                    <p>
+                        La description de la vue de Rome
+                        dans le manuscrit de Fano correspond étroitement, mais pas entièrement, à la configuration
+                        générale et aux figures emblématiques visibles sur la vue de Turin, de sorte qu'il est
+                        maintenant possible d'étudier cette œuvre exceptionnelle pour la première fois, avec son
+                        auteur comme guide.
+                    </p>
+                    <p>Le fait que Sixte V, un fin théologien, ait demandé à Righettino de mettre par écrit ses
+                        explications de l'image montre à quel point le contenu exégétique de l'œuvre était
+                        attrayant pour lui. La plupart des sources des <i>dichiaratione</i> de Righettino proviennent de
+                        la Bible, de Thomas d'Aquin et d'Aristote.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="separator"></div> -->
+
+    <div id="numerique" class="section">
+        <div class="center-content">
+            <div class="text-content">
+                <div class="left">
+                    <h2>Pourquoi le numérique ?</h2>
+                </div>
+                <div class="right">
+                    <p>
+                        L'articulation linéaire du livre ne rend pas compte de manière appropriée de cette image :
+                        les principes de symétrie, de correspondance, ou sa topologie, qui conditionnent son
+                        interprétation et sa lecture. De plus, ses dimensions (68 x 94 cm) et son caractère très
+                        minutieux
+                        rendent sa reproduction particulièrement problématique dans un ouvrage imprimé.
+                    </p>
+
+                    <p>
+                        Une telle image, très détaillée et extraordinairement complexe en termes de programme
+                        allégorique,
+                        est presque impossible à publier dans le format traditionnel du livre sans perdre beaucoup de
+                        son attrait. Au contraire, une publication numérique peut mieux rendre la richesse de l'œuvre
+                        tant d'un point de vue visuel que conceptuel. L'objectif de cette communication est de présenter
+                        le projet en cours de publication numérique du dessin ainsi qu'un manuscrit d'accompagnement de
+                        l'auteur décrivant et expliquant sa signification. Cette présentation est l'occasion de
+                        réfléchir
+                        à la manière dont les publications numériques en histoire de l'art peuvent aider à mieux
+                        articuler
+                        des modes spécifiques de lecture d'une image de la Renaissance, notamment celles qui possèdent
+                        une
+                        structure diagrammatique et qui jouent sur la combinaison de divers modes de représentation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="separator"></div> -->
+
+    <div id="edition" class="section">
+        <div class="center-content">
+            <div class="text-content">
+                <div class="left">
+                    <h2>Édition critique du texte manuscrit</h2>
+                </div>
+                <div class="right">
+                    <p>La compréhension du plan allégorique de Righettino est soutenue par l'édition d'un texte
+                        manuscrit
+                        conservé à Rome ainsi que par un ensemble de gloses explicatives des différentes figures
+                        rédigées
+                        dans le cadre de la recherche. Pour les parties textuelles de notre éditions, nous avons choisi
+                        d’encoder en XML, nous
+                        permettant :
+
+                    <ul>
+                        <li> D’ajouter les descriptions bibliographiques fines des éléments du corpus qui alimentent une
+                            base de
+                            données bibliographiques.
+                        </li>
+                        <li>De marquer les entités nommées dans le texte et de noter les citations en fournissant un
+                            cadre pour
+                            la préparation des index et le renvoi au sources historiques, etc.
+                        </li>
+                        <li>Fournir en liaison Ave l’utilisation du format Scalable Vector Graphic (SVG) le balisage de
+                            l’image
+                            et de ses relations internes.
+                        </li>
+                    </ul>
+                    <p>
+                        La notice sera amenée à évoluer et à être encodée en XML-TEI avec la définition d’un schéma
+                        simple pour assurer la conservation à long terme.
+                    </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- div#.section>div.center-content>div.text-content>div.left+div.right -->
+
 </body>
-
-</html>

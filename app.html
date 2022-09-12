@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/398deee16b.js" crossorigin="anonymous"></script>
+  <title>Righettino @ Ouvroir</title>
+</head>
+
+<body>
+  <div id="contentDiv" class="openseadragon"></div>
+  <div id="maside" class="hide-toc hide-aside">
+
+    <div id="toc-container"></div>
+
+    <div id="text-container" class='text-container'>
+
+      <!-- <div class='text-container-header'>
+        <span class="header-btn" id="header-btn-toc">
+          <span class="icon">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <span class="header-btn-text">Table des contenus</span>
+        </span>
+
+        <span class="header-btn" id="header-btn-close">
+          <span class="icon">
+            <i class="fa-solid fa-xmark"></i>
+          </span>
+        </span>
+      </div> -->
+
+    </div>
+  </div>
+
+  <div id='toolbar'>
+
+    <div class="toolbar-btn" id="btn-toggle-toc">
+      <span class="icon">
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+      </span>
+      <p class="label">TOC</p>
+    </div>
+
+    <div class="toolbar-btn" id="btn-toggle-text">
+      <span class="icon">
+        <i class="fa-solid fa-file-lines fa-xl"></i>
+      </span>
+      <p class="label">Text</p>
+    </div>
+    <div class="toolbar-btn" id="btn-highlight">
+      <span class="icon">
+        <i class="fa-regular fa-lightbulb fa-xl"></i>
+      </span>
+      <p class="label">highlight</p>
+    </div>
+
+    <div class="toolbar-btn" id="btn-leave">
+      <span class="icon">
+        <i class="fa-solid fa-xmark fa-xl"></i>
+      </span>
+      <p class="label">leave</p>
+    </div>
+  </div>
+
+  <div id="invisible"></div>
+  <script type="module" src="./src/openseadragon-svg-overlay.js"></script>
+  <script type="module" src="./src/OpenSeadragonHTMLelements.js"></script>
+  <script type="module" src="./src/main.ts"></script>
+  <script type="module" src="./src/toc.ts"></script>
+</body>
+
+</html>

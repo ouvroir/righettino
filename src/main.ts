@@ -1,4 +1,4 @@
-import './style.css'
+import './css/app.css'
 import OpenSeadragon from 'openseadragon'
 import OpenSeadragonViewerInputHook from '@openseadragon-imaging/openseadragon-viewerinputhook'
 import OpenSeadragonImagingHelper from '@openseadragon-imaging/openseadragon-imaginghelper';
@@ -259,4 +259,10 @@ document
          e.currentTarget.classList.add('activated')
          console.log(e.currentTarget)
       }
+   })
+
+document
+   .querySelector('#btn-leave')
+   ?.addEventListener('click', () => {
+      window.location.href = '/'
    })

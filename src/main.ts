@@ -53,13 +53,28 @@ new OpenSeadragonViewerInputHook({
    ]
 });
 
+let pos = {
+   "width": 0.38689692315201507,
+   "height": 0.391419924806446,
+   "origin": {
+      "x": 0.22505649748813322,
+      "y": -0.03935929596317832
+   },
+   "center": {
+      "x": 0.41850495906414076,
+      "y": 0.1563506664400447
+   },
+   "zoomfactor": 0.2899544329634835
+}
+
 globalThis.imagingHelper = new OpenSeadragonImagingHelper({ viewer: viewer });
 imagingHelper.addHandler('image-view-changed', (e) => {
-   // event.viewportWidth == width of viewer viewport in logical coordinates relative to image native size
-   // event.viewportHeight == height of viewer viewport in logical coordinates relative to image native size
-   // event.viewportOrigin == OpenSeadragon.Point, top-left of the viewer viewport in logical coordinates relative to image
-   // event.viewportCenter == OpenSeadragon.Point, center of the viewer viewport in logical coordinates relative to image
-   // event.zoomFactor == current zoom factor
+   // e.viewportWidth == width of viewer viewport in logical coordinates relative to image native size
+   // e.viewportHeight == height of viewer viewport in logical coordinates relative to image native size
+   // e.viewportOrigin == OpenSeadragon.Point, top-left of the viewer viewport in logical coordinates relative to image
+   // e.viewportCenter == OpenSeadragon.Point, center of the viewer viewport in logical coordinates relative to image
+   // e.zoomFactor == current zoom factor
+
    // console.log({
    //    width: e.viewportWidth,
    //    height: e.viewportHeight,
@@ -139,6 +154,7 @@ const initApp = (): void => {
             const svg = parser.parseFromString(data, 'image/svg+xml')
             const path = Array.from(svg.getElementsByTagName('path'))[0]
 
+            path.classList.add('mask-item')
             path.setAttribute('fill', 'none')
             path.addEventListener('onclick', itemOnClick)
             path.addEventListener('mouseover', itemOnHover)
@@ -156,12 +172,12 @@ const initApp = (): void => {
          doc.querySelectorAll('*[files], *[zoom]').forEach(e => {
             SECTIONS[e.id] = {
                files: e.getAttribute('files')?.split(','),
-               zoom: e.getAttribute('zoom')?.split(',').map(s => parseInt(s))
+               zoom: e.getAttribute('zoom')?.split(',').map(s => parseFloat(s))
             }
          })
       })
 
-   console.log(SECTIONS)
+   console.log('Sections', SECTIONS)
 }
 
 hEl.addElement({

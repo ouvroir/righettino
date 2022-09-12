@@ -33,6 +33,10 @@ h1 {
   margin: 0;
 }
 
+.mask-item {
+  transition: all 0.3s ease-in-out;
+}
+
 #items-bg {
   position: absolute;
   top: 0;

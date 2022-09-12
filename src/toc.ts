@@ -2,7 +2,8 @@ import {
    highlightItems,
    unHighlightItems,
    updateMaskItems,
-   initObserver
+   initObserver,
+   goTo
 } from './helpers'
 
 const tocContainer = document.getElementById('toc-container')
@@ -50,6 +51,11 @@ fetch('/data/toc.html')
             aside?.classList.remove('show-toc-only')
             aside?.classList.add('hide-toc')
 
+            // Go to indicated zoom
+            const target = e.currentTarget.id
+            goTo(SECTIONS[target].zoom)
+            updateMaskItems(SECTIONS[target].files)
+            highlightItems('30%')
 
          }, false)
 

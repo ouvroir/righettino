@@ -8,15 +8,19 @@
 
 <div id="text-content">
 
-    <h1 id="theologales">Chapitre 1. Les trois vertus théologales</h1>
-    <h2 id="01">Les trois vertus théologales</h2>
+    <h1 id="theologales" files="blazon.svg,charity.svg,hope.svg,faith.svg" zoom="0.4,0.15,0.5,0.1">Chapitre 1. Les trois
+        vertus théologales</h1>
+    <h2 id="01" files="blazon.svg,charity.svg,hope.svg,faith.svg" zoom="0.4,0.15,0.5,0.1">Les trois vertus théologales
+    </h2>
 
     <!-- thretheologicalvirtues.svg -->
     <!-- Rajouter les fichiers dans attribut "files"/les positions en mode coordonées (x,y,longueur, hauteur)/ajouter attribut pour justification du texte-->
 
-    <h3>1. La Foi, l'Espérance et la Charité</h3>
+    <h3 id='chapter1' files="blazon.svg,charity.svg,hope.svg,faith.svg" zoom="0.4,0.15,0.5,0.1">1. La Foi,
+        l'Espérance et
+        la Charité</h3>
 
-    <h4 id="CG0" files="blazon.svg,charity.svg,hope.svg,faith.svg" zoom="4060,288,1339,1653">Composition générale
+    <h4 id="CG0" files="blazon.svg,charity.svg,hope.svg,faith.svg" zoom="0.4,0.15,0.5,0.1">Composition générale
     </h4>
     <p>
         <a href="#theologales02">La Foi</a> et <a href="#theologales03">l’Espérance</a> sont disposées
@@ -43,7 +47,7 @@
 
 
 
-    <h4 id="theologales01" files="blazon.svg" zoom="4451,589,622,913">Le blason</h4>
+    <h4 id="theologales01" files="blazon.svg">Le blason</h4>
     <p>Le blason se compose de quatre parties distinctes. Deux parties contiennent
         un cheval et deux parties un lion. Les correspondances se font
         diagonalement. Il s’agit du blason de la Savoie tel qu’il a été remanié au
@@ -136,7 +140,7 @@
 
 
 
-    <h4 id="theologales02" files="faith.svg" zoom="4061,293,622,868">la Foi</h4>
+    <h4 id="theologales02" files="faith.svg">la Foi</h4>
     <p>Dans le plan de Rome, la Foi figure non pas à gauche, mais à droite du <a href="#theologales01">blason</a>
         comme l’indique Righettino dans sa
         discussion de la Théologie divine (fol. 13v=25). La Foi tient la couronne de
@@ -167,7 +171,7 @@
 
 
 
-    <h4 id="theologales03" files="hope.svg" zoom="4917,280,642,860">L'Espérance</h4>
+    <h4 id="theologales03" files="hope.svg">L'Espérance</h4>
     <p>Comme nous l’avons mentionné précédemment, les positions de l’Espérance et de
         <a href="#theologales02">la Foi</a>ont été inversées dans le plan de
         Turin par rapport au plan de Rome. Ainsi, l’Espérance se retrouve à droite

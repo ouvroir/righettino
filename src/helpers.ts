@@ -38,7 +38,13 @@ const convertPixelsToRatio = (pixels: number[]) => {
 }
 
 export const initObserver = () => {
-   const observer = new IntersectionObserver(handleIntersection)
+   const observer = new IntersectionObserver(
+      handleIntersection,
+      {
+         rootMargin: '-200px',
+         threshold: 0.5
+      }
+   )
 
    document
       .querySelectorAll('#text-content>*[id]')
@@ -47,11 +53,15 @@ export const initObserver = () => {
       })
 }
 
+export const goTo = (zoom) => {
+   if (!zoom) return
+   imagingHelper.setView(zoom[2], zoom[3], { x: zoom[0], y: zoom[1] })
+}
+
 const handleIntersection = (entries: IntersectionObserverEntry[]) => {
    entries.map(entry => {
       if (entry.isIntersecting) {
          const targetId = entry.target.id
-         console.log('intersecting', targetId)
 
          if (!(targetId in SECTIONS)) {
             console.warn(entry.target.id, 'not in SECTIONS')
@@ -59,18 +69,19 @@ const handleIntersection = (entries: IntersectionObserverEntry[]) => {
          }
 
          const { files, zoom } = SECTIONS[targetId]
-         if (!(files && zoom)) {
-            console.warn('handleIntersection data problem with', entry.target.id)
-            return
+         if (files) {
+            updateMaskItems(files)
+            highlightItems('30%')
+
+            if (zoom) {
+               console.log('dealing withc section', targetId, SECTIONS[targetId])
+               console.log({
+                  'originalZoom': zoom,
+                  'setView': [zoom[2], zoom[3], { x: zoom[0], y: zoom[1] }]
+               })
+               goTo(zoom)
+            }
          }
-
-         const pos = convertPixelsToRatio(zoom)
-         console.log(zoom)
-         console.log(pos)
-         updateMaskItems(files)
-         highlightItems('30%')
-         imagingHelper.setView(pos.width, pos.height, { x: pos.x, y: pos.y })
-
       }
    })
 }

@@ -2,12 +2,12 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: 'https://github.com/ouvroir/righettino/',
+    base: "/righettino/",
     build: {
         rollupOptions: {
             input: {
-                main: resolve('/', 'index.html'),
-                nested: resolve('/', 'app.html')
+                main: resolve('./', 'index.html'),
+                nested: resolve('./app/', 'index.html')
             }
         }
     }

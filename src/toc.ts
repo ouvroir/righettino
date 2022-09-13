@@ -39,23 +39,38 @@ fetch('/data/toc.html')
          container.classList.add('toc-heading')
 
          container.addEventListener('click', (e) => {
-            // update selected
+            let target = e.currentTarget as HTMLElement
+
+            if (!target) {
+               console.warn('cannote add event listener to toc container')
+               return
+            }
+
             // make sure everything else unselected
             Array.from(document.getElementsByClassName('toc-heading'))
                .forEach(h => h.classList.remove('toc-selected'))
-            e.currentTarget.classList.add('toc-selected')
+
+            // update selected
+            target.classList.add('toc-selected')
 
             // Open text panel, close toc
             const aside = document
                .querySelector('#maside')
             aside?.classList.remove('show-toc-only')
+            aside?.classList.remove('hide-text')
             aside?.classList.add('hide-toc')
 
             // Go to indicated zoom
-            const target = e.currentTarget.id
-            goTo(SECTIONS[target].zoom)
-            updateMaskItems(SECTIONS[target].files)
-            highlightItems('30%')
+            const { files, zoom } = SECTIONS[target.id]
+            if (files && zoom) {
+               goTo(zoom)
+               updateMaskItems(files)
+               highlightItems('30%')
+            }
+            else {
+               console.warn('files and/or zoom not in SECTIONS for id', target.id)
+               return
+            }
 
          }, false)
 

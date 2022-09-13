@@ -57,22 +57,8 @@ new OpenSeadragonViewerInputHook({
    ]
 });
 
-let pos = {
-   "width": 0.38689692315201507,
-   "height": 0.391419924806446,
-   "origin": {
-      "x": 0.22505649748813322,
-      "y": -0.03935929596317832
-   },
-   "center": {
-      "x": 0.41850495906414076,
-      "y": 0.1563506664400447
-   },
-   "zoomfactor": 0.2899544329634835
-}
-
 globalThis.imagingHelper = new OpenSeadragonImagingHelper({ viewer: viewer });
-imagingHelper.addHandler('image-view-changed', (e) => {
+imagingHelper.addHandler('image-view-changed', () => {
    // e.viewportWidth == width of viewer viewport in logical coordinates relative to image native size
    // e.viewportHeight == height of viewer viewport in logical coordinates relative to image native size
    // e.viewportOrigin == OpenSeadragon.Point, top-left of the viewer viewport in logical coordinates relative to image
@@ -102,19 +88,26 @@ const itemOnClick = (e: any) => {
    e.stopPropagation()
 
    const { files, zoom } = SECTIONS[sectionId]
-   updateMaskItems(files)
-   highlightItems()
-   goTo(zoom)
+   if (files && zoom) {
+      updateMaskItems(files)
+      highlightItems()
+      goTo(zoom)
+   }
 
    globalThis.keepHighlight = true
 }
 
-const itemOnMouseOver = (e) => {
+const itemOnMouseOver = (e: Event) => {
    console.log('hovering with keepHighlight at', keepHighlight)
    if (keepHighlight)
       return
-   updateMaskItems([e.currentTarget.id])
-   highlightItems()
+
+   if (e.currentTarget) {
+      let target = e.currentTarget as HTMLElement
+      updateMaskItems([target.id])
+      highlightItems()
+   }
+
    keepHighlight = false
 }
 
@@ -148,7 +141,7 @@ maskBg.setAttribute('fill', 'white')
 
 mask.appendChild(maskBg)
 
-const itemsBg = maskBg.cloneNode(true)
+const itemsBg = maskBg.cloneNode(true) as HTMLElement
 itemsBg.id = 'items-bg'
 itemsBg.setAttribute('fill-opacity', '0%')
 itemsContainer.appendChild(itemsBg)
@@ -158,7 +151,7 @@ globalThis.ITEMS = {}
 globalThis.SECTIONS = {}
 globalThis.keepHighlight = false
 
-const itemSection = {
+const itemSection: { [name: string]: string } = {
    'faith.svg': 'chapter1',
    'blazon.svg': 'chapter1',
    'charity.svg': 'chapter1',
@@ -231,7 +224,7 @@ document
       console.log(e)
    })
 
-document.getElementById('header-btn-close')?.addEventListener('click', (e) => {
+document.getElementById('header-btn-close')?.addEventListener('click', () => {
    const aside = document.querySelector('#maside')
    aside?.classList.remove('show')
    aside?.classList.add('hide-aside')
@@ -247,17 +240,21 @@ document.querySelector('#maside')?.classList.remove('hide-aside')
 
 document
    .querySelector('#btn-highlight')
-   ?.addEventListener('click', (e) => {
+   ?.addEventListener('click', (e: Event) => {
+      let target = e.currentTarget as HTMLElement
+
       if (globalThis.keepHighlight) {
          unHighlightItems()
          globalThis.keepHighlight = false
-         e.currentTarget.classList.remove('activated')
+
+         if (target)
+            target.classList.remove('activated')
       } else {
          updateMaskItems(Object.keys(ITEMS))
          highlightItems('30%')
          globalThis.keepHighlight = true
-         e.currentTarget.classList.add('activated')
-         console.log(e.currentTarget)
+         if (target)
+            target.classList.add('activated')
       }
    })
 

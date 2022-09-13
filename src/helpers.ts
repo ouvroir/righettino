@@ -7,10 +7,13 @@ export const updateMaskItems = (files: string[]) => {
    // add paths to mask
    files.forEach(f => {
       if (!(f in ITEMS)) console.warn(f, 'not in ITEMS')
-      let maskItem = ITEMS[f].cloneNode()
+      let maskItem = ITEMS[f].cloneNode() as HTMLElement
       maskItem.id = f
       maskItem.setAttribute('fill', 'black')
-      document.querySelector('mask').appendChild(maskItem)
+
+      document
+         .querySelector('mask')
+         ?.appendChild(maskItem)
    })
 }
 
@@ -28,17 +31,17 @@ export const unHighlightItems = () => {
    itemsBg?.setAttribute('fill-opacity', '0%')
 }
 
-const convertPixelsToRatio = (pixels: number[]) => {
-   const imgWidth = 9645
-   const imgHeight = 7181
+// const convertPixelsToRatio = (pixels: number[]) => {
+//    const imgWidth = 9645
+//    const imgHeight = 7181
 
-   return {
-      width: (pixels[0] / imgWidth) + 1,
-      height: (pixels[1] / imgHeight) + 1,
-      x: pixels[2] * 10 / imgWidth,
-      y: pixels[3] * 10 / imgHeight
-   }
-}
+//    return {
+//       width: (pixels[0] / imgWidth) + 1,
+//       height: (pixels[1] / imgHeight) + 1,
+//       x: pixels[2] * 10 / imgWidth,
+//       y: pixels[3] * 10 / imgHeight
+//    }
+// }
 
 export const initObserver = () => {
    const observer = new IntersectionObserver(
@@ -56,7 +59,7 @@ export const initObserver = () => {
       })
 }
 
-export const goTo = (zoom: Float32Array) => {
+export const goTo = (zoom: number[]) => {
    if (!zoom) return
    imagingHelper.setView(zoom[2], zoom[3], { x: zoom[0], y: zoom[1] })
 }

@@ -178,7 +178,7 @@ const initApp = (): void => {
 
    // Create dict items
    files.forEach(f => {
-      fetch('../public/data/svg/' + f)
+      fetch('/data/svg/' + f)
          .then((res) => res.text())
          .then((data) => {
             console.log(f)

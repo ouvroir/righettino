@@ -17,7 +17,7 @@ globalThis.viewer = OpenSeadragon({
       'https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/',
    tileSources: {
       type: 'image',
-      url: '/View.png',
+      url: '../View.png',
    },
    minZoomLevel: 0.5,
 })
@@ -178,7 +178,7 @@ const initApp = (): void => {
 
    // Create dict items
    files.forEach(f => {
-      fetch('/data/svg/' + f)
+      fetch('../public/data/svg/' + f)
          .then((res) => res.text())
          .then((data) => {
             console.log(f)

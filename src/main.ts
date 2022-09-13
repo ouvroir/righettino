@@ -11,6 +11,7 @@ import { updateMaskItems, highlightItems, unHighlightItems, goTo } from './helpe
 
 globalThis.viewer = OpenSeadragon({
    id: 'contentDiv',
+   //@ts-ignore
    toolbar: 'invisible',
    prefixUrl:
       'https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/',
@@ -47,6 +48,7 @@ const onViewerDblClick = (e: any) => {
    );
 }
 
+//@ts-ignore
 const hEl = viewer.HTMLelements()
 
 new OpenSeadragonViewerInputHook({
@@ -135,7 +137,9 @@ const maskBg = document.createElementNS(ns, 'rect')
 maskBg.id = 'mask-bg'
 maskBg.style.width = '10000vw'
 maskBg.style.height = '10000vh'
+//@ts-ignore
 maskBg.style.x = '-1000vh'
+//@ts-ignore
 maskBg.style.y = '-1000vh'
 maskBg.setAttribute('fill', 'white')
 

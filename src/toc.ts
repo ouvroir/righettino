@@ -32,6 +32,9 @@ fetch('/data/toc.html')
    .then(data => {
       const doc = parser.parseFromString(data, 'text/html')
       const toc = doc.getElementById('toc')
+
+      if (!toc) return
+
       const headings = Array.from(toc?.children).map(c => {
 
          // Container has marker + to-heading-x
@@ -75,12 +78,20 @@ fetch('/data/toc.html')
          }, false)
 
          container.addEventListener('mouseover', (e) => {
-            const href = e.currentTarget.lastChild.href.split('#')[1]
+            let node = e.currentTarget as Node
+            if (!node || !node.lastChild) return
+
+            let target = node as HTMLElement
+            let href = target.getAttribute('href')
+            if (!href) return
+            href = href.split('#')[1]
+
             imagingHelper.setView(1.5, 1.5, { x: 0.3, y: 0.45 },)
 
             if (!(href in SECTIONS)) return
 
             const { files } = SECTIONS[href]
+            if (!files) return
             updateMaskItems(files)
             highlightItems('30%')
          })
@@ -97,21 +108,21 @@ fetch('/data/toc.html')
       tocContainer?.append(...headings)
    })
 
-document.querySelector('#header-btn-toc')?.addEventListener('click', (e) => {
+document.querySelector('#header-btn-toc')?.addEventListener('click', () => {
    // console.log('toc-btn : ', e.currentTarget)
    const aside = document.querySelector('#maside')
    aside?.classList.remove('hide-toc')
    aside?.classList.remove('hide-aside')
 })
 
-document.querySelector('#header-btn-close')?.addEventListener('click', (e) => {
+document.querySelector('#header-btn-close')?.addEventListener('click', () => {
    // console.log('toc-btn : ', e.currentTarget)
    const aside = document.querySelector('#maside')
    aside?.classList.remove('hide-toc')
    aside?.classList.add('hide-aside')
 })
 
-document.querySelector('#btn-toggle-text')?.addEventListener('click', (e) => {
+document.querySelector('#btn-toggle-text')?.addEventListener('click', () => {
    const aside = document.querySelector('#maside')
    aside?.classList.remove('show-toc-only')
    aside?.classList.add('hide-toc')
@@ -120,7 +131,7 @@ document.querySelector('#btn-toggle-text')?.addEventListener('click', (e) => {
       : aside?.classList.add('hide-aside')
 })
 
-document.querySelector('#btn-toggle-toc')?.addEventListener('click', (e) => {
+document.querySelector('#btn-toggle-toc')?.addEventListener('click', () => {
    const aside = document.querySelector('#maside')
    aside?.classList.contains('hide-aside')
       ? aside.classList.remove('hide-aside')
@@ -133,7 +144,7 @@ document.querySelector('#btn-toggle-toc')?.addEventListener('click', (e) => {
    aside?.classList.add('show-toc-only')
 })
 
-document.querySelector('#btn-highlight')?.addEventListener('click', (e) => {
+document.querySelector('#btn-highlight')?.addEventListener('click', () => {
 
 })
 

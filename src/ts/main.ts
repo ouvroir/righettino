@@ -10,17 +10,36 @@ console.log('BASE_URL', import.meta.env.BASE_URL)
 //    Openseadragon stuff
 // ---------------------------
 
+const onlineTile = {
+   type: 'image',
+   url: 'https://oncs.bib.umontreal.ca/ouvroir/righettino/png/0_View_of_Turin.png',
+   crossOriginPolicy: 'Anonymous',
+   ajaxWithCredentials: false
+}
+
+const localTile = {
+   type: 'image',
+   url: '../View.png'
+}
+
 globalThis.viewer = OpenSeadragon({
    id: 'contentDiv',
    //@ts-ignore
    toolbar: 'invisible',
    prefixUrl:
       'https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/',
-   tileSources: {
-      type: 'image',
-      url: '../View.png',
-   },
+   tileSources: import.meta.env.PROD ? onlineTile : localTile,
    minZoomLevel: 0.5,
+})
+
+viewer.addHandler('tile-loaded', () => {
+   const div = document.querySelector('#loading-container') as HTMLElement
+   if (div) {
+      div.style.visibility = 'hidden'
+   }
+   else {
+      console.warn('cannot hide loading div')
+   }
 })
 
 globalThis.viewport = viewer.viewport
@@ -240,9 +259,9 @@ document.getElementById('header-btn-close')?.addEventListener('click', () => {
 initApp()
 console.log('Done setting up the app')
 console.log('Using OpenseaDragon version', OpenSeadragon.version.versionStr)
-document.querySelector('#maside')?.classList.add('show-toc-only')
-document.querySelector('#maside')?.classList.remove('hide-toc')
-document.querySelector('#maside')?.classList.remove('hide-aside')
+// document.querySelector('#maside')?.classList.add('show-toc-only')
+// document.querySelector('#maside')?.classList.remove('hide-toc')
+// document.querySelector('#maside')?.classList.remove('hide-aside')
 
 document
    .querySelector('#btn-highlight')

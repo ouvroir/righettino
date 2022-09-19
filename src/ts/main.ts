@@ -1,9 +1,10 @@
-import './css/app.css'
 import OpenSeadragon from 'openseadragon'
 import OpenSeadragonViewerInputHook from '@openseadragon-imaging/openseadragon-viewerinputhook'
 import OpenSeadragonImagingHelper from '@openseadragon-imaging/openseadragon-imaginghelper';
 import { updateMaskItems, highlightItems, unHighlightItems, goTo } from './helpers'
 
+
+console.log('BASE_URL', import.meta.env.BASE_URL)
 
 // ---------------------------
 //    Openseadragon stuff
@@ -178,7 +179,8 @@ const initApp = (): void => {
 
    // Create dict items
    files.forEach(f => {
-      fetch('/data/svg/' + f)
+      // const base = import.meta.env.PROD ? 'righettino/public' : ''
+      fetch('../data/svg/' + f)
          .then((res) => res.text())
          .then((data) => {
             console.log(f)

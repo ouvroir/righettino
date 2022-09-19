@@ -8,8 +8,9 @@ import {
 
 const tocContainer = document.getElementById('toc-container')
 const parser = new DOMParser()
+// const base = import.meta.env.PROD ? 'righettino/public' : ''
 
-fetch('/data/xml/chapter1_2.xml')
+fetch('../data/xml/chapter1_2.xml')
    .then(res => res.text())
    .then(data => {
       const doc = parser.parseFromString(data, 'text/html')
@@ -27,7 +28,7 @@ fetch('/data/xml/chapter1_2.xml')
       initObserver()
    })
 
-fetch('/data/toc.html')
+fetch('../data/toc.html')
    .then(res => res.text())
    .then(data => {
       const doc = parser.parseFromString(data, 'text/html')

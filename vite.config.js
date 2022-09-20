@@ -15,6 +15,9 @@ export default defineConfig((command, mode) => {
             main: resolve(__dirname, 'index.html'),
             nested: resolve(__dirname, 'app/index.html'),
           },
+
+          //removes files from build
+          external: /external/,
         },
       },
     }

@@ -19,7 +19,7 @@ const onlineTile = {
 
 const localTile = {
    type: 'image',
-   url: '../View.png'
+   url: '../../external/View.png'
 }
 
 globalThis.viewer = OpenSeadragon({

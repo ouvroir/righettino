@@ -32,6 +32,15 @@ path {
 
 h1 {
   margin: 0;
+  padding-bottom: 4%;
+  font-weight: 300;
+}
+
+blockquote {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 150%;
 }
 
 .mask-item {

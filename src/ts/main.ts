@@ -80,21 +80,23 @@ new OpenSeadragonViewerInputHook({
 });
 
 globalThis.imagingHelper = new OpenSeadragonImagingHelper({ viewer: viewer });
-imagingHelper.addHandler('image-view-changed', () => {
+imagingHelper.addHandler('image-view-changed', (e: any) => {
    // e.viewportWidth == width of viewer viewport in logical coordinates relative to image native size
    // e.viewportHeight == height of viewer viewport in logical coordinates relative to image native size
    // e.viewportOrigin == OpenSeadragon.Point, top-left of the viewer viewport in logical coordinates relative to image
    // e.viewportCenter == OpenSeadragon.Point, center of the viewer viewport in logical coordinates relative to image
    // e.zoomFactor == current zoom factor
 
-   // console.log({
-   //    width: e.viewportWidth,
-   //    height: e.viewportHeight,
-   //    origin: e.viewportOrigin,
-   //    center: e.viewportCenter,
-   //    zoomfactor: e.zoomFactor
-   // })
+   capture = {
+      width: e.viewportWidth,
+      height: e.viewportHeight,
+      origin: e.viewportOrigin,
+      center: e.viewportCenter,
+      zoomfactor: e.zoomFactor
+   }
 });
+
+var capture: any = null
 // ---------------------------
 //    Dealing with items
 // ---------------------------
@@ -276,3 +278,9 @@ document
    ?.addEventListener('click', () => {
       window.location.href = '/'
    })
+
+
+document.querySelector('#btn-toggle-capture')?.addEventListener('click', (e: Event) => {
+   console.log(capture)
+   e.stopImmediatePropagation()
+})

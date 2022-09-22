@@ -219,19 +219,7 @@ const initApp = (): void => {
 
    })
    console.log('ITEMS', ITEMS)
-   // Create section dict (section_name -> files/zoom)
-   fetch('/data/xml/chapter1_2.xml')
-      .then(res => res.text())
-      .then(data => {
-         const doc = parser.parseFromString(data, 'application/xml')
-         doc.querySelectorAll('*[files], *[zoom]').forEach(e => {
-            const files = e.getAttribute('files')?.split(',')
-            const zoom = e.getAttribute('zoom')?.split(',').map(s => parseFloat(s))
-            SECTIONS[e.id] = { files, zoom }
-         })
-      })
 
-   console.log('Sections', SECTIONS)
 }
 
 hEl.addElement({

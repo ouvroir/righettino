@@ -33,6 +33,7 @@ const tocTitleOnClick = (e: Event) => {
    aside?.classList.add('hide-toc')
 
    // Go to indicated zoom
+   if (!(target.id in SECTIONS)) return
    const { files, zoom } = SECTIONS[target.id]
    if (files && zoom) {
       goTo(zoom)
@@ -132,7 +133,8 @@ document.querySelector('#header-btn-close')?.addEventListener('click', () => {
 
 document.querySelector('#btn-toggle-text')?.addEventListener('click', () => {
    const aside = document.querySelector('#maside')
-   aside?.classList.remove('show-toc-only')
+   keepHighlight =
+      aside?.classList.remove('show-toc-only')
    aside?.classList.add('hide-toc')
    aside?.classList.contains('hide-aside')
       ? aside.classList.remove('hide-aside')

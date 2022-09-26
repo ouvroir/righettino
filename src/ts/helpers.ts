@@ -47,7 +47,7 @@ export const initObserver = () => {
    const observer = new IntersectionObserver(
       handleIntersection,
       {
-         rootMargin: '-250px',
+         rootMargin: '-200px',
          threshold: 0.5
       }
    )
@@ -66,7 +66,8 @@ export const goTo = (zoom: number[]) => {
 
 const handleIntersection = (entries: IntersectionObserverEntry[]) => {
    entries.map(entry => {
-      globalThis.keepHighlight = true
+      globalThis.keepHighlight = false
+      console.log(entry.target)
       if (entry.isIntersecting) {
          const targetId = entry.target.id
 

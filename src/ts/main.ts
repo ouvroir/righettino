@@ -221,7 +221,6 @@ const initApp = (): void => {
 
    })
    console.log('ITEMS', ITEMS)
-
 }
 
 hEl.addElement({

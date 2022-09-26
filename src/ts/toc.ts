@@ -133,8 +133,8 @@ document.querySelector('#header-btn-close')?.addEventListener('click', () => {
 
 document.querySelector('#btn-toggle-text')?.addEventListener('click', () => {
    const aside = document.querySelector('#maside')
-   keepHighlight =
-      aside?.classList.remove('show-toc-only')
+   keepHighlight = true
+   aside?.classList.remove('show-toc-only')
    aside?.classList.add('hide-toc')
    aside?.classList.contains('hide-aside')
       ? aside.classList.remove('hide-aside')

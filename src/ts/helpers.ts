@@ -47,7 +47,8 @@ export const initObserver = () => {
    const observer = new IntersectionObserver(
       handleIntersection,
       {
-         rootMargin: '-200px',
+         // root: document.querySelector('#text-content'),
+         rootMargin: '-10%',
          threshold: 0.5
       }
    )
@@ -65,31 +66,32 @@ export const goTo = (zoom: number[]) => {
 }
 
 const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-   entries.map(entry => {
-      globalThis.keepHighlight = false
-      console.log(entry.target)
-      if (entry.isIntersecting) {
-         const targetId = entry.target.id
+   entries
+      .map(entry => {
+         globalThis.keepHighlight = false
+         console.log(entry.target)
+         if (entry.isIntersecting) {
+            const targetId = entry.target.id
 
-         if (!(targetId in SECTIONS)) {
-            console.warn(entry.target.id, 'not in SECTIONS')
-            return
-         }
+            if (!(targetId in SECTIONS)) {
+               console.warn(entry.target.id, 'not in SECTIONS')
+               return
+            }
 
-         const { files, zoom } = SECTIONS[targetId]
-         if (files) {
-            updateMaskItems(files)
-            highlightItems('30%')
+            const { files, zoom } = SECTIONS[targetId]
+            if (files) {
+               updateMaskItems(files)
+               highlightItems('30%')
 
-            if (zoom) {
-               console.log('dealing withc section', targetId, SECTIONS[targetId])
-               console.log({
-                  'originalZoom': zoom,
-                  'setView': [zoom[2], zoom[3], { x: zoom[0], y: zoom[1] }]
-               })
-               goTo(zoom)
+               if (zoom) {
+                  console.log('dealing withc section', targetId, SECTIONS[targetId])
+                  console.log({
+                     'originalZoom': zoom,
+                     'setView': [zoom[2], zoom[3], { x: zoom[0], y: zoom[1] }]
+                  })
+                  goTo(zoom)
+               }
             }
          }
-      }
-   })
+      })
 }

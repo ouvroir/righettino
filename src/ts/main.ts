@@ -12,7 +12,7 @@ console.log('BASE_URL', import.meta.env.BASE_URL)
 
 const onlineTile = {
    type: 'image',
-   url: 'https://oncs.bib.umontreal.ca/ouvroir/righettino/png/0_View_of_Turin.png',
+   url: 'https://oncs.bib.umontreal.ca/ouvroir/righettino/png/View.png',
    crossOriginPolicy: 'Anonymous',
    ajaxWithCredentials: false
 }
@@ -282,5 +282,11 @@ document
 
 document.querySelector('#btn-toggle-capture')?.addEventListener('click', (e: Event) => {
    console.log(capture)
+   console.log('other data for capture')
+   console.log({
+      width: globalThis.viewport,
+      height: globalThis.viewport.height,
+      center: globalThis.viewport.center
+   })
    e.stopImmediatePropagation()
 })

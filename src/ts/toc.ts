@@ -47,11 +47,11 @@ const tocTitleOnClick = (e: Event) => {
 
 const tocTitleOnOver = (e: Event) => {
    globalThis.keepHighlight = false
-   let node = e.currentTarget as Node
+   let node = e.currentTarget as HTMLElement
    if (!node || !node.lastChild) return
 
-   let target = node as HTMLElement
-   let href = target.getAttribute('href')
+
+   let href = node.querySelector('a[href]')?.getAttribute('href')
    if (!href) return
    href = href.split('#')[1]
 

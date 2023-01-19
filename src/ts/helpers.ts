@@ -69,7 +69,7 @@ const handleIntersection = (entries: IntersectionObserverEntry[]) => {
    entries
       .map(entry => {
          globalThis.keepHighlight = false
-         console.log(entry.target)
+         // console.log(entry.target)
          if (entry.isIntersecting) {
             const targetId = entry.target.id
 
